@@ -1,5 +1,5 @@
 import Icon from 'react-native-vector-icons/Ionicons';
-import Separator from './Separator'
+import Separator from './Helpers/Separator'
 
 import React, { Component } from 'react';
 import {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
 // header section
   headerContainer: {
-    flex: 0.44,
+    flex: 0.3,
     backgroundColor: '#008000',
     justifyContent: 'center',
     alignItems: 'center',
@@ -30,18 +30,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: 'white',
-    marginTop: 30,
-    marginBottom: 23,
+    marginTop: 5,
+    marginBottom: 5,
   },
   paddingView: {
-    paddingTop: 20,
+    paddingTop: 0,
   },
   SearchInputContainer: {
     flexDirection: 'row',
   },
   searchInput: {
     height: 30,
-    padding: 4,
+    padding: 2,
     width: 330,
     marginLeft: 5,
     fontSize: 23,
@@ -61,16 +61,15 @@ const styles = StyleSheet.create({
   },
   rowContainer: {
     flexDirection: 'row',
-    marginTop: 5,
-    marginBottom: 5,
+
   },
   textContainer: {
     flex: 1,
   },
   textStyle: {
     fontSize: 20,
-    marginTop: 2,
     color: 'white',
+    justifyContent: 'center',
   },
   arrowContainer: {
     marginRight: 15,
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
   img: {
     flex: 1,
     alignItems: 'stretch',
-    marginBottom: 5,
+    marginBottom: 1,
     padding: 20,
     width: null,
     height: null
@@ -88,7 +87,161 @@ const styles = StyleSheet.create({
 const categoryData = [
   {data: (
     <Image
-      source={require('./run.png')}
+      source={require('./category/Art.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Art"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+  {data: (
+    <Image
+      source={require('./category/Automotive.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Automotive"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+  {data: (
+    <Image
+      source={require('./category/Craft.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Craft"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+  {data: (
+    <Image
+      source={require('./category/Dance.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Dance"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+  {data: (
+    <Image
+      source={require('./category/Drama.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Drama"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./category/Food.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Food"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./category/Games.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Games"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./category/Martial.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Martial"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./category/Mental.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Mental"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./category/Music.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Music"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./category/Outdoors.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Outdoors"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./category/Sports.png')}
       style={styles.img}>
       <View style={styles.rowContainer}>
         <View style={styles.textContainer}>
