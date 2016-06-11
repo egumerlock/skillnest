@@ -1,5 +1,6 @@
 import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/Ionicons';
+var MainMapView = require('./MainMapView.js')
 
 import React, { Component } from 'react';
 
@@ -84,7 +85,7 @@ class StartSlider extends Component {
               </Icon.Button>
             </View>
             <View style={styles.studentButton}>
-              <Icon.Button name="ios-arrow-dropright-outline" backgroundColor="#107cff" >
+              <Icon.Button onPress={this.getStarted.bind(this)} name="ios-arrow-dropright-outline" backgroundColor="#107cff" >
                 I'm a student
               </Icon.Button>
             </View>
@@ -93,6 +94,12 @@ class StartSlider extends Component {
       </Swiper>
     )
   }
-}
+  getStarted() {
+    this.props.navigator.push({
+      title: 'Map Page',
+      component: MainMapView
+    })
+  }
+};
 
 export default StartSlider

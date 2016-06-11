@@ -24,7 +24,7 @@ class skillnest extends Component {
 
   renderScene(route, navigator) {
      if(route.name == 'StartSlider') {
-       return <StartSlider navigator={navigator} />
+       return <MainMapView navigator={navigator} />
      }
   }
 }
