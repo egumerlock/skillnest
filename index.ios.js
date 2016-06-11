@@ -43,8 +43,8 @@ class skillnest extends Component {
   }
 
   renderScene(route, navigator) {
-     if(route.name == 'Categories') {
-       return <Categories navigator={navigator} />
+     if(route.name == 'StartSlider') {
+       return <StartSlider navigator={navigator} />
      }
      if(route.name == 'User') {
        return <User navigator={navigator} />
