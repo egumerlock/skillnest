@@ -149,18 +149,18 @@ class User extends Component {
     };
   }
 
-  componentDidMount() {
-      this.fetchData();
-  }
-
-  fetchData() {
-    //return mocked data for now
-    this.setState({
-      name: mockedUser[0].name,
-      dataSource: this.state.dataSource.cloneWithRows(mockedUser)
-
-    });
-  }
+  // componentDidMount() {
+  //     this.fetchData();
+  // }
+  //
+  // fetchData() {
+  //   //return mocked data for now
+  //   // this.setState({
+  //   //   name: mockedUser[0].name,
+  //   //   dataSource: this.state.dataSource.cloneWithRows(mockedUser)
+  //
+  //   });
+  // }
 
   render(){
     return(
