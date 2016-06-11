@@ -74,7 +74,7 @@ let styles = StyleSheet.create({
 var mockedUser = [
   {
     name: 'Molly S.',
-    email: 'mollys@gmail.com'
+    email: 'mollys@gmail.com',
     classes: [
       {
         title: 'Ombre Watercolor Workshop',
@@ -140,12 +140,34 @@ var mockedUser = [
 ]
 
 class User extends Component {
+  getInitialState(){
+    return{
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,
+      }).cloneWithRows(mockedUser),
+      name: ''
+    };
+  }
+
+  componentDidMount() {
+      this.fetchData();
+  }
+
+  fetchData() {
+    //return mocked data for now
+    this.setState({
+      name: mockedUser[0].name,
+      dataSource: this.state.dataSource.cloneWithRows(mockedUser)
+
+    });
+  }
+
   render(){
     return(
       <View style={styles.container}>
         <View style={styles.hero}>
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>mockedUser.name</Text>
+          <Text style={styles.title}>this.state.name</Text>
         </View>
           <Image
           style={styles.profilePic}
@@ -173,6 +195,14 @@ class User extends Component {
         </View>
       </View>
     )
+  }
+
+  _onClassesButton() {
+
+  }
+
+  _onReviewsButton() {
+
   }
 }
 
