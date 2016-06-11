@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 
 import {
   StyleSheet,
+  TouchableOpacity,
+  Navigator,
   Text,
   View,
   Image,
@@ -55,6 +57,22 @@ let styles = StyleSheet.create({
   },
   backgroundimage: {
     flex: 1,
+  },
+  navButton: {
+    height: 60,
+    width: 150,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // backgroundColor: 'white',
+    borderWidth: 2,
+    borderColor: 'white',
+    borderRadius: 10,
+    marginBottom: 10,
+    opacity: 50
+  },
+  navText: {
+    fontSize: 18,
+    color: 'white'
   }
 })
 
@@ -76,23 +94,48 @@ class StartSlider extends Component {
         <Image style={styles.slide3} source={require('./Helpers/background-gradient.png')}>
           <View>
             <View style={styles.startText}>
-              <Text style={styles.text}>Let's get started!</Text>
+              <Text style={styles.text}>Lets get started!</Text>
             </View>
             <View style={styles.teachertButton}>
-              <Icon.Button name="ios-arrow-dropright-outline" backgroundColor="#107cff" >
-                I'm a teacher
-              </Icon.Button>
+              <TouchableOpacity
+                style={styles.navButton}
+                underlayColor="transparent"
+                onPress={this._onTeacherButton.bind(this)}>
+                <Text
+                  style={styles.navText}>
+                  Teacher
+                </Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.studentButton}>
-              <Icon.Button name="ios-arrow-dropright-outline" backgroundColor="#107cff" >
-                I'm a student
-              </Icon.Button>
+              <TouchableOpacity
+                style={styles.navButton}
+                underlayColor="transparent"
+                onPress={this._onStudentButton.bind(this)}>
+                <Text
+                  style={styles.navText}>
+                  Student
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </Image>
       </Swiper>
     )
   }
+
+  _onTeacherButton(){
+
+  }
+
+  _onStudentButton(){
+    this.props.navigator.push({
+      component: User,
+      name: "User"
+    })
+  }
+
+
 }
 
 export default StartSlider

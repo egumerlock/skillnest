@@ -1,4 +1,5 @@
 import StartSlider from './App/Components/StartSlider'
+import User from './App/Components/User'
 import MainMapView from './App/Components/MainMapView'
 
 
@@ -25,6 +26,9 @@ class skillnest extends Component {
   renderScene(route, navigator) {
      if(route.name == 'StartSlider') {
        return <StartSlider navigator={navigator} />
+     }
+     if(route.name == 'User') {
+       return <User navigator={navigaotr} />
      }
   }
 }

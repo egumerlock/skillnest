@@ -16,8 +16,7 @@ class User extends Component {
     return (
 
     )
-  }
-
+  };
 }
 
 export default User;
