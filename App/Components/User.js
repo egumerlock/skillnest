@@ -8,13 +8,16 @@ import {
 } from 'react-native';
 
 let styles = StyleSheet.create({
-
+  container: {
+   flex: 1,
+   backgroundColor: '#ffff'
+ }
 })
 
 class User extends Component {
   render(){
     return(
-      
+
     )
   }
 }
