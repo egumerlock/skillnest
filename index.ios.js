@@ -1,6 +1,7 @@
 import StartSlider from './App/Components/StartSlider'
 import MainMapView from './App/Components/MainMapView'
-
+import TeacherProfile from './App/Components/TeacherProfile'
+import CoursePage from './App/Components/CoursePage'
 
 import React, { Component } from 'react';
 import {

@@ -75,4 +75,4 @@ class StartSlider extends Component {
   }
 }
 
-export default StartSlider
+export default StartSlider;

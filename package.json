@@ -8,6 +8,7 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-native": "^0.27.2",
+    "react-native-communications": "^2.0.0",
     "react-native-maps": "^0.4.2",
     "react-native-spinkit": "^0.1.2",
     "react-native-swiper": "^1.4.5",
