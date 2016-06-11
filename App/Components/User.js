@@ -75,35 +75,67 @@ var mockedUser = [
   {
     name: 'Molly S.',
     email: 'mollys@gmail.com'
-    classes: {
-      1: {
+    classes: [
+      {
         title: 'Ombre Watercolor Workshop',
         teacher: 'Jack J.',
         imgLink: 'http://ih1.redbubble.net/image.58824777.0188/flat,1000x1000,075,f.u2.jpg',
         lastContacted: 'June 11th, 2016'
       },
-      2: {
+      {
         title: 'Brush Lettering',
         teacher: 'Bettie P.',
         imgLink: 'http://static1.squarespace.com/static/540fd39ae4b01475ae2448ee/t/5448713fe4b0d7fec27158cf/1414033731198/',
         lastContacted: 'June 1st, 2016'
       },
-      3: {
+      {
         title: 'Print Making',
         teacher: 'Tanya B.',
         imgLink: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Hokusai-fuji7.png',
         lastContacted: 'May 28th, 2016'
-      }
-      4: {
+      },
+      {
         title: 'EL Wire Workshop',
         teacher: 'Matt F.',
         imgLink: 'http://overyonderlust.com/wp-content/uploads/2014/01/EL_Wire.jpg',
         lastContacted: 'May 15th, 2016'
       }
-    },
-    reviews: {
-
-    }
+    ],
+    reviews: [
+      {
+        title: 'Ombre Watercolor Workshop',
+        teacher: 'Jack J.',
+        knowlegeable: true,
+        patient: true,
+        friendly: true,
+        technical_expertise: 4,
+        passion: 5,
+        course_difficulty: 3,
+        summary: 'Jack is an awesome teacher, you can tell he really loves his work!'
+      },
+      {
+        title: 'Print Making',
+        teacher: 'Tanya B.',
+        knowlegeable: true,
+        patient: false,
+        friendly: false,
+        technical_expertise: 5,
+        passion: 2,
+        course_difficulty: 5,
+        summary: 'I wouldnt recommend this class it is really hard & Tanya is not very friendly'
+      },
+      {
+        title: 'EL Wire Workshop',
+        teacher: 'Matt F.',
+        knowlegeable: false,
+        patient: true,
+        friendly: true,
+        technical_expertise: 2,
+        passion: 5,
+        course_difficulty: 1,
+        summary: 'Matts enthusiasium for EL wire is great but I dont think I learned much in this class'
+      }
+    ]
   }
 ]
 
