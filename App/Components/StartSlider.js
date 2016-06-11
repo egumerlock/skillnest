@@ -1,5 +1,6 @@
 import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/Ionicons';
+import User from './User'
 
 import React, { Component } from 'react';
 

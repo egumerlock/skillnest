@@ -17,7 +17,9 @@ let styles = StyleSheet.create({
 class User extends Component {
   render(){
     return(
+      <View style={styles.container}>
 
+      </View>
     )
   }
 }

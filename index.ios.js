@@ -13,6 +13,7 @@ import {
   View,
 } from 'react-native';
 
+const SCREEN_WIDTH = require('Dimensions').get('window').width;
 
 /**
  * Overwrite the default navigator scene config.
@@ -46,7 +47,7 @@ class skillnest extends Component {
        return <StartSlider navigator={navigator} />
      }
      if(route.name == 'User') {
-       return <User navigator={navigaotr} />
+       return <User navigator={navigator} />
      }
   }
 }
