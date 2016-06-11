@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
 } from 'react-native';
 
 let styles = StyleSheet.create({
@@ -16,32 +17,44 @@ let styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#9DD6EB',
+    height: null,
+    width: null
   },
   slide2: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#97CAE5',
+    height: null,
+    width: null
   },
   slide3: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#92BBD9',
+    height: null,
+    width: null
   },
   text: {
     color: '#fff',
     fontSize: 30,
     fontWeight: 'bold',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
   },
   teachertButton: {
-    marginTop: 100,
+    marginTop: 90,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   studentButton: {
     marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   startText: {
     marginTop: 320,
+  },
+  backgroundimage: {
+    flex: 1,
   }
 })
 
@@ -49,27 +62,34 @@ class StartSlider extends Component {
   render() {
     return (
       <Swiper style={styles.wrapper} showsButtons={true}>
-        <View style={styles.slide1}>
-          <Text style={styles.text}>Hello There</Text>
-        </View>
-        <View style={styles.slide2}>
-          <Text style={styles.text}>Welcome to...</Text>
-        </View>
-        <View style={styles.slide3}>
-          <View style={styles.startText}>
-            <Text style={styles.text}>SkillNest</Text>
+        <Image style={styles.slide1} source={require('./Helpers/background-gradient.png')}>
+          <View>
+            <Text style={styles.text}>Welcome to SkillNest{"\n"}Find your passion..</Text>
           </View>
-          <View style={styles.teachertButton}>
-            <Icon.Button name="ios-arrow-dropright-outline" backgroundColor="#3b5998" >
-              I'm a teacher
-            </Icon.Button>
+        </Image>
+
+        <Image style={styles.slide2} source={require('./Helpers/background-gradient.png')}>
+          <View>
+            <Text style={styles.text}>In the central place to {"\n"}find a skilled teacher.</Text>
           </View>
-          <View style={styles.studentButton}>
-            <Icon.Button name="ios-arrow-dropright-outline" backgroundColor="#3b5998" >
-              I'm a student
-            </Icon.Button>
+        </Image>
+        <Image style={styles.slide3} source={require('./Helpers/background-gradient.png')}>
+          <View>
+            <View style={styles.startText}>
+              <Text style={styles.text}>Let's get started!</Text>
+            </View>
+            <View style={styles.teachertButton}>
+              <Icon.Button name="ios-arrow-dropright-outline" backgroundColor="#107cff" >
+                I'm a teacher
+              </Icon.Button>
+            </View>
+            <View style={styles.studentButton}>
+              <Icon.Button name="ios-arrow-dropright-outline" backgroundColor="#107cff" >
+                I'm a student
+              </Icon.Button>
+            </View>
           </View>
-        </View>
+        </Image>
       </Swiper>
     )
   }
