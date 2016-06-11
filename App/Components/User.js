@@ -6,6 +6,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  ListView,
   ScrollView
 } from 'react-native';
 
@@ -75,6 +76,7 @@ var mockedUser = [
   {
     name: 'Molly S.',
     email: 'mollys@gmail.com',
+    profilePic: 'http://1.bp.blogspot.com/-I2aPA52ms38/VcqtGNT0-9I/AAAAAAAAGQ8/QTuHSROZl2c/s1600/abby-circular-profile.png'
     classes: [
       {
         title: 'Ombre Watercolor Workshop',
