@@ -37,7 +37,6 @@ var styles = StyleSheet.create({
     backgroundColor: '#6600ff',
     borderColor: '#6600ff',
     borderWidth: 1,
-    borderRadius: 8,
     marginBottom: 10,
     alignSelf: 'stretch',
     justifyContent: 'center'
@@ -60,7 +59,6 @@ var styles = StyleSheet.create({
   rowContainer: {
     flex: 1,
     backgroundColor: 'white',
-    borderRadius: 8,
     paddingVertical: 20,
     marginVertical: 2,
     flexDirection: 'row',
@@ -86,7 +84,7 @@ class CoursePage extends Component {
         </View>
 
         <View style={styles.rowContainer}>
-          <Text style={styles.label}> Course Info{'\n'} This course is an individual surf lesson that focuses technique and skill.</Text>
+          <Text style={styles.label}> Course Description{'\n'} This is a 2-hour individual surf lesson that focuses technique and skill.</Text>
         </View>
 
         <View style={styles.rowContainer}>
@@ -94,7 +92,7 @@ class CoursePage extends Component {
         </View>
 
         <View style={styles.rowContainer}>
-          <Text style={styles.rowText}>$120 for 2 hours</Text>
+          <Text style={styles.rowText}>$120</Text>
         </View>
 
         <View style={styles.rowContainer}>

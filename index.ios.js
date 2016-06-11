@@ -1,6 +1,6 @@
 import StartSlider from './App/Components/StartSlider'
 import MainMapView from './App/Components/MainMapView'
-
+import CoursePage from './App/Components/CoursePage'
 
 import React, { Component } from 'react';
 import {
@@ -17,14 +17,14 @@ class skillnest extends Component {
     return (
         <Navigator
           style={{ flex:1 }}
-          initialRoute={{ name: 'StartSlider' }}
+          initialRoute={{ name: 'CoursePage' }}
           renderScene={ this.renderScene } />
     );
   }
 
   renderScene(route, navigator) {
-     if(route.name == 'StartSlider') {
-       return <StartSlider navigator={navigator} />
+     if(route.name == 'CoursePage') {
+       return <CoursePage navigator={navigator} />
      }
   }
 }
