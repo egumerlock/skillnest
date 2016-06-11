@@ -13,13 +13,31 @@ import {
   View,
 } from 'react-native';
 
+
+/**
+ * Overwrite the default navigator scene config.
+ * to use a wider area for back swiping.
+ */
+const FloatFromRight = {
+  ...Navigator.SceneConfigs.FloatFromRight,
+  gestures: {
+    pop: {
+      ...Navigator.SceneConfigs.FloatFromRight.gestures.pop,
+      edgeHitWidth: SCREEN_WIDTH / 2,
+    },
+  },
+};
+
+
 class skillnest extends Component {
   render() {
     return (
         <Navigator
           style={{ flex:1 }}
           initialRoute={{ name: 'StartSlider' }}
-          renderScene={ this.renderScene } />
+          renderScene={ this.renderScene }
+          configureScene={ () => FloatFromRight }
+          />
     );
   }
 

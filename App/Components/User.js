@@ -12,11 +12,11 @@ let styles = StyleSheet.create({
 })
 
 class User extends Component {
-  render() {
-    return (
-
+  render(){
+    return(
+      
     )
-  };
+  }
 }
 
 export default User;
