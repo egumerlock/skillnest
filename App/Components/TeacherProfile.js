@@ -137,7 +137,7 @@ let styles = StyleSheet.create({
     marginBottom: 5,
   },
   SearchInputIcon: {
-    color: "#53D1E5",
+    color: "#658D9F",
     marginTop: 10,
     marginLeft: 15
   },
