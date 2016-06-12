@@ -50,7 +50,7 @@ var styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: 'black',
+    color: '#658D9F',
     flex: 1
   },
   rowContainer: {
@@ -133,7 +133,7 @@ class CoursePage extends Component {
           <Separator2/>
 
           <View style={styles.rowContainer}>
-            <Text style={styles.title}> Introduction to Surfing </Text>
+            <Text style={styles.title}> Beginners Surfring I </Text>
           </View>
           <Separator2/>
 
