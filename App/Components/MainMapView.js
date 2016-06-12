@@ -3,6 +3,7 @@ import MapView from 'react-native-maps';
 import Spinner from 'react-native-spinkit';
 import AnimatedRatingStars from './Helpers/AnimatedRatingStars'
 import TeacherProfile from './TeacherProfile'
+import User from './User'
 import React, { Component } from 'react';
 var CustomCallout = require('./CustomCallout.js')
 import {
@@ -75,7 +76,7 @@ class MainMapView extends Component {
           },
           name: "Jeanne Renault",
           field: "Surf Instructor",
-          capacity: "5/6",
+          capacity: "11/26",
           pricing: "$25-$40 / hour",
           avatar: 'http://i.imgur.com/gKOpj8v.png'
         },
@@ -236,7 +237,7 @@ class MainMapView extends Component {
         tintColor='#53D1E5'
         barTintColor="white">
         <Icon.TabBarItemIOS
-          iconName={"ios-text-outline"}
+          iconName={"md-pin"}
           style={styles.wrapper}
           selected={this.state.selectedTab === 'GoogleMap'}
           onPress={() => {
@@ -249,7 +250,7 @@ class MainMapView extends Component {
 
         </Icon.TabBarItemIOS>
         <Icon.TabBarItemIOS
-          iconName={"md-pin"}
+          iconName={"md-person"}
           style={styles.wrapper}
           selected={this.state.selectedTab === 'Something'}
           onPress={() => {
@@ -257,7 +258,7 @@ class MainMapView extends Component {
               selectedTab: 'Something'
             });
           }} >
-          <Text>dgfdfsdfssdfsdfsdgdfkgksdhkj</Text>
+          <User />
         </Icon.TabBarItemIOS>
         <Icon.TabBarItemIOS
           iconName={"md-heart-outline"} >

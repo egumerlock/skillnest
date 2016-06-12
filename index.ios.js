@@ -55,7 +55,7 @@ class skillnest extends Component {
      if(route.name == 'Categories') {
        return <Categories navigator={navigator} />
      }
-     
+
      if(route.name == 'User') {
        return <User navigator={navigator} />
      }
@@ -70,6 +70,9 @@ class skillnest extends Component {
      }
      if(route.name == 'TeacherProfile') {
        return <TeacherProfile navigator={navigator} />
+     }
+     if(route.name == 'CoursePage') {
+       return <CoursePage navigator={navigator} />
      }
   }
 }

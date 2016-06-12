@@ -2,6 +2,8 @@ var Button = require('./Common/button');
 import Separator2 from './Helpers/Separator2'
 import communication from './Helpers/Communication'
 import AnimatedRatingStars from './Helpers/AnimatedRatingStars'
+import Icon from 'react-native-vector-icons/Ionicons';
+import ClassList from './ClassList';
 
 import React, { Component } from 'react';
 import {
@@ -14,7 +16,8 @@ import {
   Image,
   ScrollView,
   MapView,
-  Marker
+  Marker,
+  TouchableOpacity
 } from 'react-native';
 
 var styles = StyleSheet.create({
@@ -105,6 +108,13 @@ var styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'transparent'
   },
+  SearchInputIcon: {
+    color: "white",
+    marginLeft: -170,
+    marginTop: -20
+
+  },
+
 });
 
 class CoursePage extends Component {
@@ -120,6 +130,10 @@ class CoursePage extends Component {
   render() {
     return (
       <Image style={styles.container} source={require('./Helpers/background-gradient-custom.png')}>
+
+        <TouchableOpacity onPress={this.onBackPress.bind(this)}>
+          <Icon name="ios-undo" style={styles.SearchInputIcon} size={30} />
+        </TouchableOpacity>
 
         <View>
           <View style={styles.rowContainer}>
@@ -166,6 +180,13 @@ class CoursePage extends Component {
 
       </Image>
     )
+  }
+  onBackPress () {
+    this.props.navigator.pop({
+      component: ClassList,
+      name: "ClassList"
+
+    })
   }
 };
 

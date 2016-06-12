@@ -1,6 +1,7 @@
 import AnimatedRatingStars from './Helpers/AnimatedRatingStars';
 import Separator from './Helpers/Separator';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ClassList from './ClassList';
 import React, { Component } from 'react';
 
 import {
@@ -125,6 +126,9 @@ let styles = StyleSheet.create({
     marginRight: 10,
     marginBottom: 5,
   },
+  SearchInputIcon: {
+    color: "#5388e5"
+  }
 })
 
 let mockedUser = [
@@ -274,7 +278,7 @@ class TeacherProfile extends Component {
       <View style={styles.container}>
         <View style={styles.hero}>
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>{this.state.name}</Text>
+          <Icon name="ios-undo" style={styles.SearchInputIcon} size={30} /><Text style={styles.title}>{this.state.name}</Text>
         </View>
           <Image
           style={styles.profilePic}
@@ -292,7 +296,7 @@ class TeacherProfile extends Component {
         <View style={styles.buttonWrapper}>
           <TouchableOpacity style={styles.leftButton}
           underlayColor="transparent"
-          onPress={() => this._onClassesButton(this.props.id)}>
+          onPress={this._onClassesButton.bind(this)}>
           <Text style={styles.buttonText}>
             Classes
           </Text>
@@ -308,11 +312,11 @@ class TeacherProfile extends Component {
   }
 
   _onClassesButton() {
+    this.props.navigator.push({
+      component: ClassList,
+      name: "ClassList"
+    })
   }
 }
 
 export default TeacherProfile;
-
-
-
-
