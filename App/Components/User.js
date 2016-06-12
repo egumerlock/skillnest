@@ -70,7 +70,43 @@ let styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
     color: 'white'
-  }
+  },
+  contactCell: {
+    flex:1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: 4,
+    borderBottomWidth: .5,
+    borderColor: 'lightgray',
+    // backgroundColor: '#17aacf'
+  },
+  classIcon: {
+    padding: 0,
+    width: 75,
+    height: 75,
+    marginRight: 20
+  },
+  rightContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  whiteText: {
+    fontSize: 18,
+    color: 'white'
+  },
+  lightText: {
+    color: 'white'
+  },
+  descContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  seperator: {
+    height: 1,
+    backgroundColor: 'white'
+  },
 })
 
 var mockedUser = [
@@ -171,6 +207,12 @@ class User extends Component {
     });
   }
 
+  renderRow(contact) {
+    return (
+      <ContactCell contact={contact}/>
+    );
+  }
+
   render(){
     return(
       <View style={styles.container}>
@@ -214,5 +256,41 @@ class User extends Component {
 
   }
 }
+
+var ContactCell = React.createClass({
+  render() {
+    return(
+      <View>
+        <View style={styles.contactCell}>
+        <Image
+           style={styles.classIcon}
+           source={this.dataSource.classes.imgLink} />
+           <View style={styles.rightContainer}>
+             <View>
+               <Text style={styles.whiteText}>
+               This is text
+               </Text>
+               <Text style={styles.lightText}>
+                 Test
+               </Text>
+             </View>
+             <View style={styles.descContainer}>
+             <Text style={styles.lightText}>
+               Test2
+             </Text>
+             <Text style={styles.lightText}>
+               Test3
+             </Text>
+             <Text style={styles.lightText}>
+               Test 4
+             </Text>
+             </View>
+        </View>
+      </View>
+      <View style={styles.separator}/>
+      </View>
+    )
+  }
+})
 
 export default User;
