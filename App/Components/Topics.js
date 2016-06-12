@@ -1,5 +1,5 @@
 import Icon from 'react-native-vector-icons/Ionicons';
-import Separator from './Separator'
+
 
 import React, { Component } from 'react';
 import {
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 const categoryData = [
   {data: (
     <Image
-      source={require('./run.png')}
+      source={require('./category/Art.png')}
       style={styles.img}>
       <View style={styles.rowContainer}>
         <View style={styles.textContainer}>
@@ -145,7 +145,6 @@ class Topics extends Component{
 
         </View>
         <View style={styles.paddingView}>
-          <Separator />
         </View>
 
         <View style={styles.rowsContainer}>
