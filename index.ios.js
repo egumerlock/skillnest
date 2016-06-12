@@ -1,6 +1,7 @@
 import StartSlider from './App/Components/StartSlider'
 import User from './App/Components/User'
 import MainMapView from './App/Components/MainMapView'
+import CoursePage from './App/Components/CoursePage'
 import Categories from './App/Components/Categories'
 import Topics from './App/Components/Topics'
 
@@ -38,14 +39,19 @@ class skillnest extends Component {
     return (
         <Navigator
           style={{ flex:1 }}
-          initialRoute={{ name: 'StartSlider' }}
+          initialRoute={{ name: 'CoursePage' }}
           renderScene={ this.renderScene }
           configureScene={ () => FloatFromRight }
           />
     );
   }
-
   renderScene(route, navigator) {
+     if(route.name == 'CoursePage') {
+       return <CoursePage navigator={navigator} />
+     }
+     if(route.name == 'Categories') {
+       return <Categories navigator={navigator} />
+     }
      if(route.name == 'StartSlider') {
        return <StartSlider navigator={navigator} />
      }
