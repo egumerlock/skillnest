@@ -111,10 +111,11 @@ class CoursePage extends Component {
   constructor() {
     super();
     this.state = {
-      coordinate: {
-        latitude: 37.8324,
-        longitude: -122.4795
-      },
+      markers: [{
+        latitude: 37.7824,
+        longitude: -122.3995,
+        title: 'learn surfing'
+      }]
     };
   }
   render() {
@@ -138,8 +139,10 @@ class CoursePage extends Component {
           <Separator2/>
 
           <View style={styles.mapContainer}>
-            <MapView style={styles.map} followUserLocation={true} showsUserLocation={true}>
-              <MapView.Marker coordinate={this.state.coordinate}/>
+            <MapView style={styles.map}
+              followUserLocation={true}
+              showsUserLocation={true}
+              annotations={this.state.markers}>
             </MapView>
           </View>
 
