@@ -176,7 +176,7 @@ class User extends Component {
       <View style={styles.container}>
         <View style={styles.hero}>
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>this.state.name</Text>
+          <Text style={styles.title}>{this.state.name}</Text>
         </View>
           <Image
           style={styles.profilePic}
