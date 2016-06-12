@@ -16,6 +16,36 @@ let styles = StyleSheet.create({
    paddingTop: 20,
    backgroundColor: '#43C6C6'
   },
+  courseCell: {
+    flex:1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: 4,
+    borderBottomWidth: .5,
+    borderColor: 'lightgray'
+  },
+  rightContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingLeft: 25,
+    alignItems: 'center'
+  },
+  whiteText: {
+    fontSize: 18,
+    color: 'white'
+  },
+  lightText: {
+    color: 'white'
+  },
+  descContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  seperator: {
+    height: 1,
+    backgroundColor: 'white'
+  },
 })
 
 class ClassList extends Component {
@@ -55,6 +85,31 @@ class ClassList extends Component {
   }
 }
 
+
+var ReviewCourse = React.createClass({
+  render() {
+    return(
+      <View>
+        <View style={styles.courseCell}>
+           <View style={styles.rightContainer}>
+             <View>
+               <Text style={styles.whiteText}>
+                {this.props.course.title}
+               </Text>
+               <Text style={styles.lightText}>
+                 Instructor: {this.props.course.teacher}
+               </Text>
+               <Text style={styles.lightText}>
+                 Summary: {this.props.course.summary}
+               </Text>
+             </View>
+        </View>
+      </View>
+      <View style={styles.separator}/>
+      </View>
+    )
+  }
+})
 
 
 export default ClassList;
