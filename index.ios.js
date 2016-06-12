@@ -5,6 +5,7 @@ import MainMapView from './App/Components/MainMapView'
 import CoursePage from './App/Components/CoursePage'
 import Categories from './App/Components/Categories'
 import Topics from './App/Components/Topics'
+import TeacherProfile from './App/Components/TeacherProfile'
 
 
 import React, { Component } from 'react';
@@ -55,7 +56,7 @@ class skillnest extends Component {
        return <Categories navigator={navigator} />
      }
      if(route.name == 'StartSlider') {
-       return <StartSlider navigator={navigator} />
+       return <TeacherProfile navigator={navigator} />
      }
      if(route.name == 'User') {
        return <User navigator={navigator} />
@@ -71,5 +72,5 @@ class skillnest extends Component {
 }
 
 
-}
+
 AppRegistry.registerComponent('skillnest', () => skillnest);

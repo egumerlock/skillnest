@@ -182,7 +182,7 @@ class MainMapView extends Component {
                     <Text style={styles.footerTextBottom}>Pricing: {markers[index].pricing} </Text>
                   </View>
                 </View>
-            
+
               <View style={styles.buttonWrapper}>
                 <TouchableOpacity style={styles.leftButton}
                 underlayColor="transparent"
@@ -358,7 +358,7 @@ const styles = StyleSheet.create({
   hero: {
     flex: 3.25,
     flexDirection: 'column',
-    backgroundColor: '#53D1E5'
+    backgroundColor: '#658D9F',
   },
   history: {
     flex: 4,
