@@ -42,8 +42,8 @@ class MainMapView extends Component {
       region: {
         latitude: 37.78825,
         longitude: -122.4324,
-        latitudeDelta: .15,
-        longitudeDelta: .15,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
       },
       markers: [
         {
@@ -220,7 +220,7 @@ class MainMapView extends Component {
       <MapView
         style={styles.map}
         showsUserLocation={true}
-        initialRegion={region}
+        initialRegion={this.state.region}
         followUserLocation={true}
         >
         {markersList}

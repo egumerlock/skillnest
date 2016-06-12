@@ -41,15 +41,15 @@ class skillnest extends Component {
     return (
         <Navigator
           style={{ flex:1 }}
-          initialRoute={{ name: 'MainMapView' }}
+          initialRoute={{ name: 'StartSlider' }}
           renderScene={ this.renderScene }
           configureScene={ () => FloatFromRight }/>
     );
   }
   renderScene(route, navigator) {
 
-     if(route.name == 'CoursePage') {
-       return <CoursePage navigator={navigator} />
+     if(route.name == 'StartSlider') {
+       return <StartSlider navigator={navigator} />
      }
 
      if(route.name == 'Categories') {
@@ -60,7 +60,6 @@ class skillnest extends Component {
      }
      if(route.name == 'User') {
        return <User navigator={navigator} />
-
      }
      if(route.name == 'ClassList') {
        return <ClassList navigator={navigator} />
@@ -76,7 +75,6 @@ class skillnest extends Component {
      }
   }
 }
-
 
 
 AppRegistry.registerComponent('skillnest', () => skillnest);
