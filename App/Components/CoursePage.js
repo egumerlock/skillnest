@@ -1,6 +1,7 @@
 var Button = require('./Common/button');
-import Separator from './Helpers/Separator'
+import Separator2 from './Helpers/Separator2'
 import communication from './Helpers/Communication'
+import AnimatedRatingStars from './Helpers/AnimatedRatingStars'
 
 import React, { Component } from 'react';
 import {
@@ -12,7 +13,8 @@ import {
   TouchableHighlight,
   Image,
   ScrollView,
-  MapView
+  MapView,
+  Marker
 } from 'react-native';
 
 var styles = StyleSheet.create({
@@ -21,13 +23,12 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: null,
-    height: null,
-    marginTop: -100
+    height: null
   },
   title: {
     fontSize: 18,
     alignSelf: 'flex-start',
-    color: 'white',
+    color: '#658D9F',
     backgroundColor: 'rgba(0,0,0,0)'
   },
   buttonText: {
@@ -50,25 +51,38 @@ var styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: 'black',
+    color: '#658D9F',
     flex: 1
   },
   rowContainer: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.6)',
+    backgroundColor: 'white',
     paddingVertical: 10,
     padding: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
     overflow: 'visible',
-    borderWidth: 2,
+    borderColor: 'white',
+    width: null,
+    height: null
+  },
+  nameContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+    paddingVertical: 10,
+    padding: 10,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'visible',
     borderColor: 'white',
   },
   rowText: {
     flex: 1,
     fontSize: 14,
-    color: 'white'
+    color: '#658D9F'
   },
   map: {
     flex: 1,
@@ -82,8 +96,14 @@ var styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     overflow: 'visible',
-    borderWidth: 2,
     borderColor: 'white',
+  },
+  profilePic:{
+    width: 100,
+    height: 100,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    backgroundColor: 'transparent'
   },
 });
 
@@ -103,27 +123,40 @@ class CoursePage extends Component {
 
         <View>
           <View style={styles.rowContainer}>
-            <Text style={styles.title}> Introduction to Surfing </Text>
+            <Image
+            style={styles.profilePic}
+            source={require('./Helpers/jeanne.png')}/>
+            <View style={styles.nameContainer}>
+              <Text style={styles.title}> Jeanne Renault </Text>
+            </View>
           </View>
+          <Separator2/>
+
+          <View style={styles.rowContainer}>
+            <Text style={styles.title}> Beginners Surfring I </Text>
+          </View>
+          <Separator2/>
 
           <View style={styles.mapContainer}>
-            <MapView style={styles.map} followUserLocation={true} showsUserLocation={true}> <MapView.Marker coordinate={this.state.coordinate}/> </MapView>
+            <MapView style={styles.map} followUserLocation={true} showsUserLocation={true}>
+              <MapView.Marker coordinate={this.state.coordinate}/>
+            </MapView>
           </View>
 
           <View style={styles.rowContainer}>
             <Text style={styles.rowText}> Time: June 18, 2016 @ 9AM </Text>
           </View>
-
+          <Separator2/>
           <View style={styles.rowContainer}>
-            <Text style={styles.rowText}> Course Description: This is a 2-hour individual surf {'\n'} lesson that focuses on technique and skill.</Text>
+            <Text style={styles.rowText}> Course Description: This is a individual surf lesson {'\n'} that focuses on technique and skill.</Text>
           </View>
-
+          <Separator2/>
           <View style={styles.rowContainer}>
-            <Text style={styles.rowText}> Availability: 1/1 Spots</Text>
+            <Text style={styles.rowText}> Availability: 0/1</Text>
           </View>
-
+          <Separator2/>
           <View style={styles.rowContainer}>
-            <Text style={styles.rowText}> Pricing: $120</Text>
+            <Text style={styles.rowText}> Pricing: $60/hour</Text>
           </View>
 
           <TouchableHighlight style={styles.button} onPress={() => communication.email(['jeannerenault@gmail.com'],null,null,'Introduction to Surfing Lessons', 'Looking forward to our lesson on Saturday, June 18 @ 9AM.')} underlayColor='#17A66C'>

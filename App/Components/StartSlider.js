@@ -1,8 +1,11 @@
 import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+var MainMapView = require('./MainMapView.js')
 import User from './User'
 import ClassList from './ClassList'
 import MainMapView from './MainMapView'
+
 
 import React, { Component } from 'react';
 
@@ -127,6 +130,7 @@ class StartSlider extends Component {
     )
   }
 
+
   _onTeacherButton(){
     this.props.navigator.push({
       component:ClassList,
@@ -136,12 +140,13 @@ class StartSlider extends Component {
 
   _onStudentButton(){
     this.props.navigator.push({
-      component: User,
+      component: MainMapView,
       name: "User"
     })
   }
 
 
 }
+
 
 export default StartSlider

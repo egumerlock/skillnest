@@ -7,7 +7,7 @@ import {
 let styles = StyleSheet.create({
   separator: {
     height: 1,
-    backgroundColor: '#E4E4E4',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
     flex: 1,
     marginLeft: 15,
     marginRight: 15
@@ -15,7 +15,7 @@ let styles = StyleSheet.create({
 });
 
 
-class Separator extends Component {
+class Separator2 extends Component {
   render() {
     return (
       <View style={styles.separator} />
@@ -23,4 +23,4 @@ class Separator extends Component {
   }
 };
 
-export default Separator
+export default Separator2
