@@ -2,6 +2,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import MapView from 'react-native-maps';
 import Spinner from 'react-native-spinkit';
 import AnimatedRatingStars from './Helpers/AnimatedRatingStars'
+import TeacherProfile from './TeacherProfile'
 import React, { Component } from 'react';
 var CustomCallout = require('./CustomCallout.js')
 import {
@@ -53,7 +54,7 @@ class MainMapView extends Component {
           name: "Jim Hadley",
           field: "Surf Instructor",
           capacity: "8/8",
-          pricing: "$$",
+          pricing: "$30-$50 / hour",
           avatar: 'https://www.shoptab.net/blog/wp-content/uploads/2014/07/profile-circle.png'
         },
         {
@@ -64,18 +65,18 @@ class MainMapView extends Component {
           name: "Megan Dudley",
           field: "Surf Instructor",
           capacity: "10/17",
-          pricing: "$",
+          pricing: "$40-$50 / hour",
           avatar: 'http://1.bp.blogspot.com/-I2aPA52ms38/VcqtGNT0-9I/AAAAAAAAGQ8/QTuHSROZl2c/s1600/abby-circular-profile.png'
         },
         {
           coordinate: {
-            latitude: 37.7324,
+            latitude: 37.7524,
             longitude: -122.4795,
           },
           name: "Jeanne Renault",
           field: "Surf Instructor",
           capacity: "5/6",
-          pricing: "$$$",
+          pricing: "$25-$40 / hour",
           avatar: 'http://i.imgur.com/gKOpj8v.png'
         },
         {
@@ -86,7 +87,7 @@ class MainMapView extends Component {
           name: "Jacques LeMans",
           field: "Surf Instructor",
           capacity: "16/24",
-          pricing: "$$",
+          pricing: "$40 / hour",
           avatar: 'http://static1.squarespace.com/static/526839d5e4b0a6ea6c312276/526ef8b1e4b0aa6f78f3f614/5271642ce4b03e61739879b6/1383162937731/tim+in+India+profile_circle.png'
         },
         {
@@ -97,7 +98,7 @@ class MainMapView extends Component {
           name: "Thomas Linea",
           field: "Surf Instructor",
           capacity: "2/4",
-          pricing: "$$$",
+          pricing: "$50 / hour",
           avatar: 'http://s3-us-west-2.amazonaws.com/s.cdpn.io/6083/profile/profile-512_1.jpg'
         },
         {
@@ -108,7 +109,7 @@ class MainMapView extends Component {
           name: "Sochie Lee",
           field: "Surf Instructor",
           capacity: "2/4",
-          pricing: "$$$",
+          pricing: "$20-$25 / hour",
           avatar: 'https://www.sochiie.com/wp-content/uploads/2014/04/facebook-teerasej-profile-ball-circle.png'
         },
         {
@@ -119,13 +120,18 @@ class MainMapView extends Component {
           name: "Doug Bodder",
           field: "Surf Instructor",
           capacity: "8/8",
-          pricing: "$$",
+          pricing: "$35-$45 / hour",
           avatar: 'http://dynamicinfluence.com/wp-content/uploads/2014/06/Robert-Circle-Profile-Pic.png'
         },
       ],
     };
   }
-
+  onProfilePress () {
+    this.props.navigator.push({
+      component: TeacherProfile,
+      name: "TeacherProfile"
+    })
+  }
   onRegionChange(region) {
     this.state.region = region;
   }
@@ -179,7 +185,7 @@ class MainMapView extends Component {
                     <Text style={styles.footerHeader}>{markers[index].field} </Text>
                     {starHolder}
                     <Text style={styles.footerText}>Availability: {markers[index].capacity} </Text>
-                    <Text style={styles.footerTextBottom}>Pricing: {markers[index].pricing} </Text>
+                    <Text style={styles.footerTextBottom}>{markers[index].pricing} </Text>
                   </View>
                 </View>
 
@@ -193,7 +199,7 @@ class MainMapView extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.rightButton}
                 underlayColor="transparent"
-                onPress={() => this._onProfileButton(this.props.id)}>
+                onPress={this.onProfilePress.bind(this)}>
                 <Text style={styles.buttonText}>
                   Profile
                 </Text>

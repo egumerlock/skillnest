@@ -41,7 +41,7 @@ class skillnest extends Component {
     return (
         <Navigator
           style={{ flex:1 }}
-          initialRoute={{ name: 'CoursePage' }}
+          initialRoute={{ name: 'MainMapView' }}
           renderScene={ this.renderScene }
           configureScene={ () => FloatFromRight }/>
     );
@@ -67,6 +67,12 @@ class skillnest extends Component {
      }
      if(route.name == 'Topics') {
        return <Topics navigator={navigator} />
+     }
+     if(route.name == 'MainMapView') {
+       return <MainMapView navigator={navigator} />
+     }
+     if(route.name == 'TeacherProfile') {
+       return <TeacherProfile navigator={navigator} />
      }
   }
 }
