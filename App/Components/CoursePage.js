@@ -13,7 +13,8 @@ import {
   TouchableHighlight,
   Image,
   ScrollView,
-  MapView
+  MapView,
+  Marker
 } from 'react-native';
 
 var styles = StyleSheet.create({
@@ -124,8 +125,7 @@ class CoursePage extends Component {
           <View style={styles.rowContainer}>
             <Image
             style={styles.profilePic}
-            source={require('./Helpers/jeanne.png')}
-            />
+            source={require('./Helpers/jeanne.png')}/>
             <View style={styles.nameContainer}>
               <Text style={styles.title}> Jeanne Renault </Text>
             </View>
@@ -138,7 +138,9 @@ class CoursePage extends Component {
           <Separator2/>
 
           <View style={styles.mapContainer}>
-            <MapView style={styles.map} followUserLocation={true} showsUserLocation={true}> <MapView.Marker coordinate={this.state.coordinate}/> </MapView>
+            <MapView style={styles.map} followUserLocation={true} showsUserLocation={true}>
+              <MapView.Marker coordinate={this.state.coordinate}/>
+            </MapView>
           </View>
 
           <View style={styles.rowContainer}>
