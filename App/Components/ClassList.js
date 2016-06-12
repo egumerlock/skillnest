@@ -79,14 +79,18 @@ class ClassList extends Component {
   render() {
     return(
       <View style={styles.container}>
-        <BrowseClassesView />
+        <ListView
+        dataSource={this.state.dataSource1}
+        renderRow={this.renderCourses}/>
       </View>
     )
   }
 }
 
 
-var ReviewCourse = React.createClass({
+
+
+var CourseCell = React.createClass({
   render() {
     return(
       <View>
