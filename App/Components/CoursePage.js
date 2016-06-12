@@ -7,24 +7,27 @@ import {
   StyleSheet,
   Text,
   View,
-  NavigatorIOS,
+  Navigator,
   TextInput,
   TouchableHighlight,
   Image,
-  ScrollView
+  ScrollView,
+  MapView
 } from 'react-native';
 
 var styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: 'center',
-    padding: 20,
-    backgroundColor: '#ffffff',
+    alignItems: 'center',
+    width: null,
+    height: null,
+    marginTop: -100
   },
   title: {
-    fontSize: 30,
+    fontSize: 18,
     alignSelf: 'flex-start',
-    marginBottom: 30,
-    color: 'black',
+    color: 'white',
     backgroundColor: 'rgba(0,0,0,0)'
   },
   buttonText: {
@@ -33,77 +36,102 @@ var styles = StyleSheet.create({
     alignSelf: 'center'
   },
   button: {
+    flex: 1,
     height: 36,
-    backgroundColor: '#6600ff',
-    borderColor: '#6600ff',
-    borderWidth: 1,
-    marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+    borderWidth: 2,
+    borderColor: 'white',
+    marginTop: 10,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    height: 60,
+    width: 150,
+    borderRadius: 10,
+    marginBottom: 10
   },
   label: {
     fontSize: 14,
     color: 'black',
     flex: 1
   },
-  image: {
-    height: 60,
-    width: 60,
-    borderRadius: 30,
-    marginTop: 25,
-  },
-  headerbar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
   rowContainer: {
     flex: 1,
-    backgroundColor: 'white',
-    paddingVertical: 20,
-    marginVertical: 2,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    paddingVertical: 10,
+    padding: 10,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     overflow: 'visible',
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: 'white',
   },
   rowText: {
     flex: 1,
     fontSize: 14,
-    color: 'black',
+    color: 'white'
+  },
+  map: {
+    flex: 1,
+    height: 150,
+    width: null,
+  },
+  mapContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    overflow: 'visible',
+    borderWidth: 2,
+    borderColor: 'white',
   },
 });
 
 class CoursePage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      coordinate: {
+        latitude: 37.8324,
+        longitude: -122.4795
+      },
+    };
+  }
   render() {
     return (
-      <View style={styles.container}>
+      <Image style={styles.container} source={require('./Helpers/background-gradient-custom.png')}>
 
-        <View style={styles.rowContainer}>
-          <Text style={styles.title}> Introduction to Surfing {'\n'} Time: June 18, 2016 @ 9AM </Text>
+        <View>
+          <View style={styles.rowContainer}>
+            <Text style={styles.title}> Introduction to Surfing </Text>
+          </View>
+
+          <View style={styles.mapContainer}>
+            <MapView style={styles.map} followUserLocation={true} showsUserLocation={true}> <MapView.Marker coordinate={this.state.coordinate}/> </MapView>
+          </View>
+
+          <View style={styles.rowContainer}>
+            <Text style={styles.rowText}> Time: June 18, 2016 @ 9AM </Text>
+          </View>
+
+          <View style={styles.rowContainer}>
+            <Text style={styles.rowText}> Course Description: This is a 2-hour individual surf {'\n'} lesson that focuses on technique and skill.</Text>
+          </View>
+
+          <View style={styles.rowContainer}>
+            <Text style={styles.rowText}> Availability: 1/1 Spots</Text>
+          </View>
+
+          <View style={styles.rowContainer}>
+            <Text style={styles.rowText}> Pricing: $120</Text>
+          </View>
+
+          <TouchableHighlight style={styles.button} onPress={() => communication.email(['jeannerenault@gmail.com'],null,null,'Introduction to Surfing Lessons', 'Looking forward to our lesson on Saturday, June 18 @ 9AM.')} underlayColor='#17A66C'>
+            <Text style={styles.buttonText}>Enroll</Text>
+          </TouchableHighlight>
         </View>
 
-        <View style={styles.rowContainer}>
-          <Text style={styles.label}> Course Description{'\n'} This is a 2-hour individual surf lesson that focuses technique and skill.</Text>
-        </View>
-
-        <View style={styles.rowContainer}>
-          <Text style={styles.rowText}>0 out of 1 spots filled</Text>
-        </View>
-
-        <View style={styles.rowContainer}>
-          <Text style={styles.rowText}>$120</Text>
-        </View>
-
-        <View style={styles.rowContainer}>
-          <Text style={styles.rowText}>Description</Text>
-        </View>
-
-        <TouchableHighlight style={styles.button} onPress={() => communication.email(['gumerlockdown@gmail.com'],null,null,'Introduction to Surfing Lessons', 'Looking forward to our lesson on Saturday, June 18 @ 9AM.')} underlayColor='#17A66C'>
-          <Text style={styles.buttonText}>Enroll</Text>
-        </TouchableHighlight>
-
-      </View>
+      </Image>
     )
   }
 };
