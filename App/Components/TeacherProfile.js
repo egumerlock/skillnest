@@ -3,6 +3,7 @@ import AnimatedRatingStars from './Helpers/AnimatedRatingStars';
 import Separator from './Helpers/Separator';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ClassList from './ClassList';
+var { width, height } = Dimensions.get('window');
 import React, { Component } from 'react';
 
 import {
@@ -13,6 +14,7 @@ import {
   Image,
   ListView,
   TouchableOpacity,
+  Dimensions
 } from 'react-native';
 
 let styles = StyleSheet.create({
@@ -142,13 +144,14 @@ let styles = StyleSheet.create({
     marginLeft: 15
   },
   pieChartWrapper: {
-    backgroundColor: "white"
+    backgroundColor: "white",
+    height: 180,
   },
   pieChart: {
-    height: 220,
-    width: 300,
-    marginLeft: 20,
-    marginTop: 10,
+    height: 150,
+    width: 270,
+    marginLeft: 40,
+    marginTop: 30,
     marginBottom: -25
 
   }
@@ -374,7 +377,7 @@ class TeacherProfile extends Component {
         </View>
 
         <View style={styles.pieChartWrapper}>
-          <Image style={styles.pieChart} source={require("./Common/piechart.gif")} />
+          <Image style={styles.pieChart} source={require("./Helpers/pie.png")} />
         </View>
 
         <AnimatedSpring />

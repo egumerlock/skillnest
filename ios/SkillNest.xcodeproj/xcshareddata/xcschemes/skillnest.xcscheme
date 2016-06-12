@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "skillnest.app"
+               BuildableName = "SkillNest.temp_caseinsensitive_rename.app"
                BlueprintName = "skillnest"
-               ReferencedContainer = "container:skillnest.xcodeproj">
+               ReferencedContainer = "container:SkillNest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "skillnestTests.xctest"
+               BuildableName = "SkillNest.temp_caseinsensitive_rename.xctest"
                BlueprintName = "skillnestTests"
-               ReferencedContainer = "container:skillnest.xcodeproj">
+               ReferencedContainer = "container:SkillNest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "skillnestTests.xctest"
+               BuildableName = "SkillNest.temp_caseinsensitive_rename.xctest"
                BlueprintName = "skillnestTests"
-               ReferencedContainer = "container:skillnest.xcodeproj">
+               ReferencedContainer = "container:SkillNest.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "skillnest.app"
+            BuildableName = "SkillNest.temp_caseinsensitive_rename.app"
             BlueprintName = "skillnest"
-            ReferencedContainer = "container:skillnest.xcodeproj">
+            ReferencedContainer = "container:SkillNest.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "skillnest.app"
+            BuildableName = "SkillNest.temp_caseinsensitive_rename.app"
             BlueprintName = "skillnest"
-            ReferencedContainer = "container:skillnest.xcodeproj">
+            ReferencedContainer = "container:SkillNest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "skillnest.app"
+            BuildableName = "SkillNest.temp_caseinsensitive_rename.app"
             BlueprintName = "skillnest"
-            ReferencedContainer = "container:skillnest.xcodeproj">
+            ReferencedContainer = "container:SkillNest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
