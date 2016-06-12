@@ -75,9 +75,9 @@ let styles = StyleSheet.create({
 
 var mockedUser = [
   {
-    name: 'Molly S.',
-    email: 'mollys@gmail.com',
-    profilePic: 'http://1.bp.blogspot.com/-I2aPA52ms38/VcqtGNT0-9I/AAAAAAAAGQ8/QTuHSROZl2c/s1600/abby-circular-profile.png',
+    name: 'Tommy C.',
+    email: 'tommyc@gmail.com',
+    profilePic: 'https://beautifulinnovation.files.wordpress.com/2015/06/circular-profile-pic.png?w=450&h=450&crop=1',
     classes: [
       {
         title: 'Ombre Watercolor Workshop',
@@ -143,27 +143,33 @@ var mockedUser = [
 ]
 
 class User extends Component {
-  getInitialState(){
-    return{
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      profilePic: '',
       dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,
-      }).cloneWithRows(mockedUser),
-      name: ''
+        rowHasChanged: (r1, r2) => r1 !== r2,
+      }),
+      loaded: false,
     };
   }
 
-  // componentDidMount() {
-  //     this.fetchData();
-  // }
-  //
-  // fetchData() {
-  //   //return mocked data for now
-  //   // this.setState({
-  //   //   name: mockedUser[0].name,
-  //   //   dataSource: this.state.dataSource.cloneWithRows(mockedUser)
-  //
-  //   });
-  // }
+  componentDidMount() {
+      this.fetchData();
+  }
+
+  fetchData() {
+    // return mocked data for now
+    this.setState({
+      name: mockedUser[0].name,
+      email: mockedUser[0].email,
+      profilePic: mockedUser[0].profilePic,
+      dataSource: this.state.dataSource.cloneWithRows(mockedUser),
+      loaded: true,
+    });
+  }
 
   render(){
     return(
@@ -174,7 +180,7 @@ class User extends Component {
         </View>
           <Image
           style={styles.profilePic}
-          source={{uri:'http://1.bp.blogspot.com/-I2aPA52ms38/VcqtGNT0-9I/AAAAAAAAGQ8/QTuHSROZl2c/s1600/abby-circular-profile.png'}}
+          source={{uri:'https://beautifulinnovation.files.wordpress.com/2015/06/circular-profile-pic.png?w=450&h=450&crop=1'}}
           />
         </View>
         <View style={styles.buttonWrapper}>
