@@ -148,7 +148,7 @@ class CoursePage extends Component {
           <Separator2/>
 
           <View style={styles.rowContainer}>
-            <Text style={styles.title}> Beginners Surfring I </Text>
+            <Text style={styles.title}> Beginners Surfing I </Text>
           </View>
           <Separator2/>
 

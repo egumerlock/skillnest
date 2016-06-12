@@ -147,7 +147,7 @@ class MainMapView extends Component {
       })
       setTimeout(() => {
       this.setState({startIndicator: false});
-      }, 5000);
+    }, 10000);
 
   }
 
