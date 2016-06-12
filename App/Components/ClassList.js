@@ -48,6 +48,47 @@ let styles = StyleSheet.create({
   },
 })
 
+var mockTeacher = [
+  {
+    name: 'Mock Teacher',
+    email: 'test@gmail',
+    profilePic: '',
+    classes: [
+      {
+        title: 'Beginers Surfing I',
+        date: 'Saturday, July 3rd, 2016',
+        time: '9:00 am',
+        duration: '4 hours',
+        price: '$',
+        open_spots: '3/7',
+      },
+      {
+        title: 'Beginers Surfing II',
+        date: 'Saturday, July 3rd, 2016',
+        time: '1:00 pm',
+        duration: '4 hours',
+        price: '$',
+        open_spots: '2/7',
+      },
+      {
+        title: 'Intermediate Surfing',
+        date: 'Sunday, July 4th, 2016',
+        time: '11:00 am'
+        duration: ' 5 hours',
+        price: '$$',
+        open_spots: '2/5',
+      },
+      {
+        title: 'Advanced Surfing',
+        date: 'Sunday, July 4th, 2016',
+        duration: '3 hours',
+        price: '$$$',
+        open_spots: '1/1',
+      },
+    ]
+  }
+]
+
 class ClassList extends Component {
   constructor(props) {
     super(props);
@@ -86,7 +127,6 @@ class ClassList extends Component {
     )
   }
 }
-
 
 
 
