@@ -109,7 +109,7 @@ let styles = StyleSheet.create({
   },
 })
 
-var mockedUser = [
+var mockUser = [
   {
     name: 'Tommy C.',
     email: 'tommyc@gmail.com',
@@ -199,10 +199,10 @@ class User extends Component {
   fetchData() {
     // return mocked data for now
     this.setState({
-      name: mockedUser[0].name,
-      email: mockedUser[0].email,
-      profilePic: mockedUser[0].profilePic,
-      dataSource: this.state.dataSource.cloneWithRows(mockedUser),
+      name: mockUser[0].name,
+      email: mockUser[0].email,
+      profilePic: mockUser[0].profilePic,
+      dataSource: this.state.dataSource.cloneWithRows(mockUser[0].classes),
       loaded: true,
     });
   }
@@ -242,7 +242,9 @@ class User extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.history}>
-
+        <ListView
+        dataSource={this.state.dataSource}
+        renderRow={this.renderRow}/>
         </View>
       </View>
     )
@@ -264,7 +266,7 @@ var ContactCell = React.createClass({
         <View style={styles.contactCell}>
         <Image
            style={styles.classIcon}
-           source={this.dataSource.classes.imgLink} />
+           source={this.props.imgLink} />
            <View style={styles.rightContainer}>
              <View>
                <Text style={styles.whiteText}>
