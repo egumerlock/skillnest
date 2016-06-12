@@ -2,6 +2,7 @@ import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 var MainMapView = require('./MainMapView.js')
+var Categories = require('./Categories.js')
 import User from './User'
 import ClassList from './ClassList'
 
@@ -139,8 +140,8 @@ class StartSlider extends Component {
 
   _onStudentButton(){
     this.props.navigator.push({
-      component: MainMapView,
-      name: "User"
+      component: Categories,
+      name: "Categories"
     })
   }
 

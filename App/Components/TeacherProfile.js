@@ -2,6 +2,7 @@ import AnimatedSpring from './AnimatedSpring';
 import AnimatedRatingStars from './Helpers/AnimatedRatingStars';
 import Separator from './Helpers/Separator';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ClassList from './ClassList';
 import React, { Component } from 'react';
 
 import {
@@ -136,7 +137,7 @@ let styles = StyleSheet.create({
     marginBottom: 5,
   },
   SearchInputIcon: {
-    color: "#53D1E5",
+    color: "#658D9F",
     marginTop: 10,
     marginLeft: 15
   },
@@ -149,6 +150,7 @@ let styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: 10,
     marginBottom: -25
+
   }
 })
 
@@ -277,7 +279,7 @@ let mockedUser = [
   }
 ]
 
-class User extends Component {
+class TeacherProfile extends Component {
   constructor() {
     super();
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -364,7 +366,7 @@ class User extends Component {
         <View style={styles.buttonWrapper}>
           <TouchableOpacity style={styles.leftButton}
           underlayColor="transparent"
-          onPress={() => this._onClassesButton(this.props.id)}>
+          onPress={this._onClassesButton.bind(this)}>
           <Text style={styles.buttonText}>
             Classes
           </Text>
@@ -390,6 +392,10 @@ class User extends Component {
   }
 
   _onClassesButton() {
+    this.props.navigator.push({
+      component: ClassList,
+      name: "ClassList"
+    })
   }
 
   onBackPress() {
@@ -397,8 +403,4 @@ class User extends Component {
   }
 }
 
-export default User;
-
-
-
-
+export default TeacherProfile;

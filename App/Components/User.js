@@ -14,7 +14,8 @@ let styles = StyleSheet.create({
   container: {
    flex: 1,
    paddingTop: 20,
-   backgroundColor: '#ffffff'
+   backgroundColor: '#ffffff',
+   marginTop: 95
   },
   hero: {
     flex: 3.25,
@@ -23,17 +24,18 @@ let styles = StyleSheet.create({
   },
   history: {
     flex: 4,
-    backgroundColor: '#43C6C6'
+    backgroundColor: '#43C6C6',
+    margin: 0
   },
   titleWrapper: {
     justifyContent: 'center',
-    marginTop: 20,
     backgroundColor: 'white',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    paddingTop: 10
   },
   title: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 22,
     color: '#658D9F',
     padding: 15
   },
@@ -41,11 +43,13 @@ let styles = StyleSheet.create({
     width: 175,
     height: 175,
     alignSelf: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    marginVertical: 30
   },
   buttonWrapper: {
     flex: .75,
     flexDirection: 'row',
+    marginBottom: 0
   },
   leftButton: {
     flex: 0.25,
@@ -75,7 +79,7 @@ let styles = StyleSheet.create({
     flex:1,
     flexDirection: 'row',
     justifyContent: 'center',
-    padding: 4,
+    // padding: 4,
     borderBottomWidth: .5,
     borderColor: 'lightgray'
   },
@@ -108,11 +112,14 @@ let styles = StyleSheet.create({
     height: 1,
     backgroundColor: 'white'
   },
+  listView: {
+
+  }
 })
 
 var mockUser = [
   {
-    name: 'Tommy C.',
+    name: 'Tommy Cardonas',
     email: 'tommyc@gmail.com',
     profilePic: 'https://beautifulinnovation.files.wordpress.com/2015/06/circular-profile-pic.png?w=450&h=450&crop=1',
     classes: [
@@ -241,21 +248,22 @@ class User extends Component {
           underlayColor="transparent"
           onPress={() => this._onClassesButton(this.props.id)}>
           <Text style={styles.buttonText}>
-            Classes
+            My Classes
           </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.rightButton}
           underlayColor="transparent"
           onPress={() => this._onReviewsButton(this.props.id)}>
           <Text style={styles.buttonText}>
-            Reviews
+            My Reviews
           </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.history}>
         <ListView
         dataSource={this.state.dataSource1}
-        renderRow={this.renderClasses}/>
+        renderRow={this.renderClasses}
+        style={styles.listView}/>
         </View>
       </View>
     )
