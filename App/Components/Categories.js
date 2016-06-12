@@ -1,7 +1,11 @@
+'use strict'
+
 import Icon from 'react-native-vector-icons/Ionicons';
+var Slider = require('react-native-slider');
 
 import React, { Component } from 'react';
 import {
+  AppRegistry,
   StyleSheet,
   TextInput,
   Text,
@@ -23,8 +27,9 @@ const styles = StyleSheet.create({
   },
 // header section
   headerContainer: {
-    flex: 0.3,
-    backgroundColor: 'gray',
+    paddingTop: 20,
+    flex: 0.2,
+    backgroundColor: '#17A66C',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -32,8 +37,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: 'white',
-    marginTop: 5,
-    marginBottom: 5,
+    marginTop: 1,
+    marginBottom: 1,
   },
   paddingView: {
     paddingTop: 0,
@@ -43,7 +48,6 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 30,
-    padding: 2,
     width: 330,
     marginLeft: 5,
     fontSize: 23,
@@ -73,6 +77,12 @@ const styles = StyleSheet.create({
     color: 'white',
     justifyContent: 'center',
   },
+  sliderTextStyle: {
+    paddingTop: 10,
+    fontSize: 20,
+    color: 'white',
+    marginLeft: 100
+  },
   arrowContainer: {
     marginRight: 15,
   },
@@ -84,6 +94,13 @@ const styles = StyleSheet.create({
     width: null,
     height: null
   },
+  Slider: {
+    flex: 0.2,
+    padding: 10,
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    backgroundColor: '#17A66C',
+  }
 });
 
 
@@ -303,16 +320,29 @@ class Categories extends Component{
 
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>Categories</Text>
-
-          <View style={styles.SearchInputContainer}>
-            <Icon name="ios-search" style={styles.SearchInputIcon} size={30} />
-            <TextInput
-              style={styles.searchInput}
-              value={this.state.searchInputText}
-              onChange={this.handleChange.bind(this)} />
-          </View>
-
+        <View style={styles.SearchInputContainer}>
+          <Icon name="ios-search" style={styles.SearchInputIcon} size={30} />
+          <TextInput
+            style={styles.searchInput}
+            value={this.state.searchInputText}
+            onChange={this.handleChange.bind(this)} />
         </View>
+        </View>
+        
+        <View style={styles.Slider}>
+        <Text style={styles.sliderTextStyle}>Price Range: ${this.state.value} / hr</Text>
+          <Slider
+          value={10}
+          onValueChange={(value) => this.setState({value})}
+          step={1}
+          maximumValue={100}
+          minimumValue={10}
+          minimumTrackTintColor='#43C6C6'
+          maximumTrackTintColor='#53D1E5'/>
+        </View>
+
+
+
         <View style={styles.paddingView}>
         </View>
 
