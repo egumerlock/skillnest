@@ -40,7 +40,7 @@ class skillnest extends Component {
     return (
         <Navigator
           style={{ flex:1 }}
-          initialRoute={{ name: 'CoursePage' }}
+          initialRoute={{ name: 'ClassList' }}
           renderScene={ this.renderScene }
           configureScene={ () => FloatFromRight }/>
     );
@@ -71,5 +71,4 @@ class skillnest extends Component {
 }
 
 
-}
 AppRegistry.registerComponent('skillnest', () => skillnest);
