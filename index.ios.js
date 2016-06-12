@@ -2,6 +2,8 @@ import StartSlider from './App/Components/StartSlider'
 import User from './App/Components/User'
 import MainMapView from './App/Components/MainMapView'
 import Categories from './App/Components/Categories'
+import Topics from './App/Components/Topics'
+
 
 import React, { Component } from 'react';
 import {
@@ -12,6 +14,7 @@ import {
   Text,
   View,
 } from 'react-native';
+
 
 const SCREEN_WIDTH = require('Dimensions').get('window').width;
 
@@ -48,6 +51,9 @@ class skillnest extends Component {
      }
      if(route.name == 'User') {
        return <User navigator={navigator} />
+     }
+     if(route.name == 'Topics') {
+       return <Topics navigator={navigator} />
      }
   }
 }
