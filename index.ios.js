@@ -71,5 +71,4 @@ class skillnest extends Component {
 }
 
 
-}
 AppRegistry.registerComponent('skillnest', () => skillnest);
