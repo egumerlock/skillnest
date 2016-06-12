@@ -1,6 +1,3 @@
-import AnimatedRatingStars from './AnimatedRatingStars';
-import Separator from './Separator';
-import Icon from 'react-native-vector-icons/Ionicons';
 import React, { Component } from 'react';
 
 import {
@@ -8,15 +5,16 @@ import {
   Text,
   View,
   Image,
-  ListView,
   TouchableOpacity,
+  ListView,
+  ScrollView
 } from 'react-native';
 
 let styles = StyleSheet.create({
   container: {
    flex: 1,
-   backgroundColor: '#53D1E5',
-   flexDirection: 'column',
+   paddingTop: 20,
+   backgroundColor: '#ffffff'
   },
   hero: {
     flex: 3.25,
@@ -25,8 +23,7 @@ let styles = StyleSheet.create({
   },
   history: {
     flex: 4,
-    backgroundColor: '#43C6C6',
-    flexDirection: 'column',
+    backgroundColor: '#43C6C6'
   },
   titleWrapper: {
     justifyContent: 'center',
@@ -44,9 +41,7 @@ let styles = StyleSheet.create({
     width: 175,
     height: 175,
     alignSelf: 'center',
-    backgroundColor: 'transparent',
-    marginTop: 10,
-    marginRight: 5,
+    backgroundColor: 'transparent'
   },
   buttonWrapper: {
     flex: .75,
@@ -76,61 +71,50 @@ let styles = StyleSheet.create({
     fontSize: 20,
     color: 'white'
   },
-  starBackground: {
-    paddingTop: 60,
-  },
-  titleContainer: {
-    backgroundColor: 'white',
-    paddingBottom: 20,
-    paddingTop: 20,
+  contactCell: {
+    flex:1,
+    flexDirection: 'row',
     justifyContent: 'center',
-    flexDirection: 'row'
+    padding: 4,
+    borderBottomWidth: .5,
+    borderColor: 'lightgray'
   },
-
-  // comments
-
-  commentContainer: {
-    flexDirection: 'column',
-    backgroundColor: 'white',
-    marginTop: 5,
-    borderStyle: "solid",
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
+  classIcon: {
+    padding: 0,
+    width: 100,
+    height: 100,
+    backgroundColor: 'transparent'
+    // marginRight: 20
   },
-  commenterInfo: {
+  rightContainer: {
+    flex: 1,
     flexDirection: 'row',
+    paddingLeft: 25,
+    alignItems: 'center'
   },
-  commenterAvatar: {
-    margin: 7,
-    width: 50,
-    height: 50,
+  whiteText: {
+    fontSize: 18,
+    color: 'white'
   },
-  timeStamp: {
-    marginTop: 8,
-    marginLeft: 130,
+  lightText: {
+    color: 'white'
   },
-  commenterNameContainer: {
-    flexDirection: 'column'
+  descContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
-  commenterName: {
-    fontWeight: 'bold',
-    marginTop: 10,
-  },
-  commentRating: {
-    flexDirection: 'row',
-    margin: 8,
-  },
-  commentContent: {
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 5,
+  seperator: {
+    height: 1,
+    backgroundColor: 'white'
   },
 })
 
-let mockedUser = [
+var mockUser = [
   {
-    name: 'Molly S.',
-    email: 'mollys@gmail.com',
+    name: 'Tommy C.',
+    email: 'tommyc@gmail.com',
+    profilePic: 'https://beautifulinnovation.files.wordpress.com/2015/06/circular-profile-pic.png?w=450&h=450&crop=1',
     classes: [
       {
         title: 'Ombre Watercolor Workshop',
@@ -159,7 +143,7 @@ let mockedUser = [
     ],
     reviews: [
       {
-        title: 'Ombre Watercolor Workshop',
+        title: 'Ombre Watercolor',
         teacher: 'Jack J.',
         knowlegeable: true,
         patient: true,
@@ -196,77 +180,48 @@ let mockedUser = [
 ]
 
 class User extends Component {
-  constructor() {
-    super();
-    this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+  constructor(props) {
+    super(props);
     this.state = {
-      dataSource: this.ds.cloneWithRows(mockedUser[0].reviews),
-      name: 'Test User'
-    }
+      name: '',
+      email: '',
+      profilePic: '',
+      dataSource1: new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2,
+      }),
+      dataSource2: new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2,
+      }),
+      loaded: false,
+    };
   }
 
-  renderReviews(rowData) {
-   return (
-      <View style={styles.commentContainer}>
+  componentDidMount() {
+      this.fetchData();
+  }
 
-        <View style={styles.commenterInfo}>
-          <Image
-          style={styles.commenterAvatar}
-          source={{uri:'http://1.bp.blogspot.com/-I2aPA52ms38/VcqtGNT0-9I/AAAAAAAAGQ8/QTuHSROZl2c/s1600/abby-circular-profile.png'}}/>
-          <View style={styles.commenterNameContainer}>
-            <Text style={styles.commenterName}>{rowData.teacher}</Text>
-            <View flexDirection='row' marginTop={5}>
-              <View>
-                <Icon name="md-star" size={20} color="#daa520" />
-              </View>
-              <View marginLeft={2}>
-                <Text>33</Text>
-              </View>
-              <View marginLeft={5}>
-                <Icon name="md-pin" size={19} color="#dc143c" marginLeft={5}/>
-              </View>
-              <View marginLeft={2}>
-                <Text>0</Text>
-              </View>
-              <View marginLeft={5}>
-                <Icon name="md-camera" size={19} color="#8fbc8f" marginLeft={5}/>
-              </View>
-              <View marginLeft={2}>
-                <Text>2</Text>
-              </View>
-            </View>
-          </View>
+  fetchData() {
+    // return mocked data for now
+    this.setState({
+      name: mockUser[0].name,
+      email: mockUser[0].email,
+      profilePic: mockUser[0].profilePic,
+      dataSource1: this.state.dataSource1.cloneWithRows(mockUser[0].classes),
+      dataSource2: this.state.dataSource2.cloneWithRows(mockUser[0].reviews),
+      loaded: true,
+    });
+  }
 
-          <View>
-            <Text style={styles.timeStamp}>6 days ago</Text>
-          </View>
-        </View>
+  renderClasses(contact) {
+    return (
+      <ContactCell contact={contact}/>
+    );
+  }
 
-        <Separator />
-
-        <View style={styles.commentRating}>
-          <View marginLeft={3}>
-            <Icon name="md-star" size={20} color="#daa520" />
-          </View>
-          <View marginLeft={3}>
-            <Icon name="md-star" size={20} color="#daa520" />
-          </View>
-          <View marginLeft={3}>
-            <Icon name="md-star" size={20} color="#daa520" />
-          </View>
-          <View marginLeft={3}>
-            <Icon name="md-star" size={20} color="#daa520" />
-          </View>
-          <View marginLeft={3}>
-            <Icon name="md-star" size={20} color="#daa520" />
-          </View>
-        </View>
-
-        <View style={styles.commentContent}>
-          <Text>{rowData.summary}</Text>
-        </View>
-      </View>
-    )
+  renderReviews(review) {
+    return (
+      <ReviewCell review={review}/>
+    );
   }
 
   render(){
@@ -278,18 +233,9 @@ class User extends Component {
         </View>
           <Image
           style={styles.profilePic}
-          source={{uri:'http://1.bp.blogspot.com/-I2aPA52ms38/VcqtGNT0-9I/AAAAAAAAGQ8/QTuHSROZl2c/s1600/abby-circular-profile.png'}}/>
-
+          source={{uri:'https://beautifulinnovation.files.wordpress.com/2015/06/circular-profile-pic.png?w=450&h=450&crop=1'}}
+          />
         </View>
-
-        <View style={styles.starBackground}>
-          <AnimatedRatingStars />
-        </View>
-
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}>Surf Instructor</Text>
-        </View>
-
         <View style={styles.buttonWrapper}>
           <TouchableOpacity style={styles.leftButton}
           underlayColor="transparent"
@@ -298,22 +244,84 @@ class User extends Component {
             Classes
           </Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.rightButton}
+          underlayColor="transparent"
+          onPress={() => this._onReviewsButton(this.props.id)}>
+          <Text style={styles.buttonText}>
+            Reviews
+          </Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.history}>
-          <ListView
-            dataSource={this.state.dataSource}
-            renderRow={this.renderReviews} />
+        <ListView
+        dataSource={this.state.dataSource1}
+        renderRow={this.renderClasses}/>
         </View>
       </View>
     )
   }
 
   _onClassesButton() {
+
+  }
+
+  _onReviewsButton() {
+
   }
 }
 
+var ContactCell = React.createClass({
+  render() {
+    return(
+      <View>
+        <View style={styles.contactCell}>
+        <Image
+           style={styles.classIcon}
+           source={{uri:this.props.contact.imgLink}} />
+           <View style={styles.rightContainer}>
+             <View>
+               <Text style={styles.whiteText}>
+                {this.props.contact.title}
+               </Text>
+               <Text style={styles.lightText}>
+                 Instructor: {this.props.contact.teacher}
+               </Text>
+               <Text style={styles.lightText}>
+                 Contacted:
+               </Text>
+             </View>
+        </View>
+      </View>
+      <View style={styles.separator}/>
+      </View>
+    )
+  }
+})
+
+var ReviewCell = React.createClass({
+  render() {
+    return(
+      <View>
+        <View style={styles.contactCell}>
+
+           <View style={styles.rightContainer}>
+             <View>
+               <Text style={styles.whiteText}>
+                {this.props.review.title}
+               </Text>
+               <Text style={styles.lightText}>
+                 Instructor: {this.props.review.teacher}
+               </Text>
+               <Text style={styles.lightText}>
+                 Summary: {this.props.review.summary}
+               </Text>
+             </View>
+        </View>
+      </View>
+      <View style={styles.separator}/>
+      </View>
+    )
+  }
+})
+
 export default User;
-
-
-
-
