@@ -1,7 +1,7 @@
 'use strict'
 
 import Icon from 'react-native-vector-icons/Ionicons';
-// var Slider = require('react-native-slider');
+var Slider = require('react-native-slider');
 
 import React, { Component } from 'react';
 import {
