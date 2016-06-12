@@ -189,6 +189,9 @@ class User extends Component {
       dataSource1: new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2,
       }),
+      dataSource2: new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2,
+      }),
       loaded: false,
     };
   }
@@ -204,6 +207,7 @@ class User extends Component {
       email: mockUser[0].email,
       profilePic: mockUser[0].profilePic,
       dataSource1: this.state.dataSource1.cloneWithRows(mockUser[0].classes),
+      dataSource2: this.state.dataSource2.cloneWithRows(mockUser[0].reviews),
       loaded: true,
     });
   }
@@ -211,6 +215,12 @@ class User extends Component {
   renderClasses(contact) {
     return (
       <ContactCell contact={contact}/>
+    );
+  }
+
+  renderReviews(review) {
+    return (
+      <ReviewCell review={review}/>
     );
   }
 
@@ -277,7 +287,33 @@ var ContactCell = React.createClass({
                  Instructor: {this.props.contact.teacher}
                </Text>
                <Text style={styles.lightText}>
-                 Contacted: {this.props.contact.lastContacted}
+                 Contacted:
+               </Text>
+             </View>
+        </View>
+      </View>
+      <View style={styles.separator}/>
+      </View>
+    )
+  }
+})
+
+var ReviewCell = React.createClass({
+  render() {
+    return(
+      <View>
+        <View style={styles.contactCell}>
+
+           <View style={styles.rightContainer}>
+             <View>
+               <Text style={styles.whiteText}>
+                {this.props.review.title}
+               </Text>
+               <Text style={styles.lightText}>
+                 Instructor: {this.props.review.teacher}
+               </Text>
+               <Text style={styles.lightText}>
+                 Summary: {this.props.review.summary}
                </Text>
              </View>
         </View>
