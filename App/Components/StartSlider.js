@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 var MainMapView = require('./MainMapView.js')
 import User from './User'
+import ClassList from './ClassList'
 
 
 import React, { Component } from 'react';
@@ -130,7 +131,10 @@ class StartSlider extends Component {
 
 
   _onTeacherButton(){
-
+    this.props.navigator.push({
+      component:ClassList,
+      name: "ClassList"
+    })
   }
 
   _onStudentButton(){

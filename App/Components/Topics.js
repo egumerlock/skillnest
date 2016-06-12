@@ -1,5 +1,5 @@
 import Icon from 'react-native-vector-icons/Ionicons';
-import Separator from './Separator'
+
 
 import React, { Component } from 'react';
 import {
@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
   },
 // header section
   headerContainer: {
-    flex: 0.44,
-    backgroundColor: '#008000',
+    flex: 0.3,
+    backgroundColor: '#17A66C',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: 'white',
-    marginTop: 30,
-    marginBottom: 23,
+    marginTop: 5,
+    marginBottom: 5
   },
   paddingView: {
-    paddingTop: 20,
+    paddingTop: 0,
   },
   SearchInputContainer: {
     flexDirection: 'row',
@@ -61,8 +61,7 @@ const styles = StyleSheet.create({
   },
   rowContainer: {
     flexDirection: 'row',
-    marginTop: 5,
-    marginBottom: 5,
+
   },
   textContainer: {
     flex: 1,
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
   img: {
     flex: 1,
     alignItems: 'stretch',
-    marginBottom: 5,
+    marginBottom: 1,
     padding: 20,
     width: null,
     height: null
@@ -88,7 +87,7 @@ const styles = StyleSheet.create({
 const categoryData = [
   {data: (
     <Image
-      source={require('./run.png')}
+      source={require('./Topics/Badminton.png')}
       style={styles.img}>
       <View style={styles.rowContainer}>
         <View style={styles.textContainer}>
@@ -99,7 +98,105 @@ const categoryData = [
         </View>
       </View>
     </Image>
-  )}
+  )},
+  {data: (
+    <Image
+      source={require('./Topics/Basketball.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"BasketBall"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./Topics/Golf.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"Golf"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./Topics/hokey.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"hokey"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./Topics/pingpong.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"pingpon"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./Topics/surfing.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"surfing"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./Topics/swimming.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"swimming"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
+    {data: (
+    <Image
+      source={require('./Topics/tennis.png')}
+      style={styles.img}>
+      <View style={styles.rowContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>{"tennis"}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          <Icon name="ios-arrow-forward" size={30} color="white" />
+        </View>
+      </View>
+    </Image>
+  )},
 ]
 
 class Topics extends Component{
@@ -145,7 +242,6 @@ class Topics extends Component{
 
         </View>
         <View style={styles.paddingView}>
-          <Separator />
         </View>
 
         <View style={styles.rowsContainer}>
