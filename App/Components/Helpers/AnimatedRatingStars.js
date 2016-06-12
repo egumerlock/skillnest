@@ -45,7 +45,7 @@ class AnimatedRatingStars extends Component {
               style={[{
                 left: this.state.anims[ii]
               }]}>
-              <Image source={require('./star.png')}></Image>
+              <Image style={styles.starImg} source={require('./star.png')}></Image>
             </Animated.View>
           )
         )}
@@ -70,6 +70,10 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  starImg: {
+    width: 20,
+    height: 20
   }
 });
 

@@ -5,6 +5,7 @@ import MainMapView from './App/Components/MainMapView'
 import CoursePage from './App/Components/CoursePage'
 import Categories from './App/Components/Categories'
 import Topics from './App/Components/Topics'
+import TeacherProfile from './App/Components/TeacherProfile'
 
 
 import React, { Component } from 'react';
@@ -42,19 +43,20 @@ class skillnest extends Component {
           style={{ flex:1 }}
           initialRoute={{ name: 'Categories' }}
           renderScene={ this.renderScene }
-          configureScene={ () => FloatFromRight }
-          />
+          configureScene={ () => FloatFromRight }/>
     );
   }
   renderScene(route, navigator) {
-     if(route.name == 'CoursePage') {
-       return <CoursePage navigator={navigator} />
+
+     if(route.name == 'StartSlider') {
+       return <StartSlider navigator={navigator} />
      }
+
      if(route.name == 'Categories') {
        return <Categories navigator={navigator} />
      }
      if(route.name == 'StartSlider') {
-       return <StartSlider navigator={navigator} />
+       return <TeacherProfile navigator={navigator} />
      }
      if(route.name == 'User') {
        return <User navigator={navigator} />
@@ -65,11 +67,14 @@ class skillnest extends Component {
      if(route.name == 'Topics') {
        return <Topics navigator={navigator} />
      }
+     if(route.name == 'MainMapView') {
+       return <MainMapView navigator={navigator} />
+     }
+     if(route.name == 'TeacherProfile') {
+       return <TeacherProfile navigator={navigator} />
+     }
   }
 }
 
-const styles = StyleSheet.create({
-
-});
 
 AppRegistry.registerComponent('skillnest', () => skillnest);
