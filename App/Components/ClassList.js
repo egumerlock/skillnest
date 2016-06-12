@@ -14,28 +14,27 @@ let styles = StyleSheet.create({
   container: {
    flex: 1,
    paddingTop: 20,
-   backgroundColor: '#43C6C6'
+   backgroundColor: 'white'
   },
   courseCell: {
     flex:1,
     flexDirection: 'row',
     justifyContent: 'center',
-    padding: 4,
     borderBottomWidth: .5,
     borderColor: 'lightgray'
   },
   rightContainer: {
     flex: 1,
     flexDirection: 'row',
-    paddingLeft: 25,
+    paddingLeft: 10,
     alignItems: 'center'
   },
   whiteText: {
     fontSize: 18,
-    color: 'white'
+    color: '#658D9F'
   },
   lightText: {
-    color: 'white'
+    color: '#658D9F'
   },
   descContainer: {
     flex: 1,
@@ -46,6 +45,12 @@ let styles = StyleSheet.create({
     height: 1,
     backgroundColor: 'white'
   },
+  classIcon: {
+    padding: 0,
+    width: 125,
+    height: 125,
+    backgroundColor: 'transparent'
+  },
 })
 
 var mockTeacher = [
@@ -55,6 +60,7 @@ var mockTeacher = [
     profilePic: '',
     courses: [
       {
+        imgLink: 'http://surfboardsoceanside.com/wp-content/uploads/2014/03/Take-off.jpg',
         title: 'Beginners Surfing I',
         date: 'Saturday, July 3rd, 2016',
         time: '9:00 am',
@@ -63,6 +69,7 @@ var mockTeacher = [
         open_spots: '3/7',
       },
       {
+        imgLink: 'http://surfboardsoceanside.com/wp-content/uploads/2014/03/Take-off.jpg',
         title: 'Beginners Surfing II',
         date: 'Saturday, July 3rd, 2016',
         time: '1:00 pm',
@@ -71,6 +78,7 @@ var mockTeacher = [
         open_spots: '2/7',
       },
       {
+        imgLink: 'http://images.wisegeek.com/surfer-in-red-shirt-on-surf-board-on-the-water.jpg',
         title: 'Intermediate Surfing',
         date: 'Sunday, July 4th, 2016',
         time: '11:00 am',
@@ -79,6 +87,7 @@ var mockTeacher = [
         open_spots: '2/5',
       },
       {
+        imgLink: 'http://www.evangelicalendtimemachine.com/wp-content/uploads/2014/05/waarom-God-problemen-toelaat-in-uw-leven1.jpg',
         title: 'Advanced Surfing',
         date: 'Sunday, July 4th, 2016',
         time: '5:00 pm',
@@ -136,7 +145,11 @@ var CourseCell = React.createClass({
     return(
       <View>
         <View style={styles.courseCell}>
+        <Image
+           style={styles.classIcon}
+           source={{uri:this.props.course.imgLink}} />
           <View style={styles.rightContainer}>
+            <View style={styles.separator}/>
             <View>
               <Text style={styles.whiteText}>
                {this.props.course.title}
@@ -149,6 +162,12 @@ var CourseCell = React.createClass({
               </Text>
               <Text style={styles.lightText}>
                 Duration: {this.props.course.duration}
+              </Text>
+              <Text style={styles.lightText}>
+                Price: {this.props.course.price}
+              </Text>
+              <Text style={styles.lightText}>
+                Open Spots: {this.props.course.open_spots}
               </Text>
             </View>
        </View>
