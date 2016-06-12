@@ -77,18 +77,19 @@ let styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 4,
     borderBottomWidth: .5,
-    borderColor: 'lightgray',
-    // backgroundColor: '#17aacf'
+    borderColor: 'lightgray'
   },
   classIcon: {
     padding: 0,
-    width: 75,
-    height: 75,
-    marginRight: 20
+    width: 100,
+    height: 100,
+    backgroundColor: 'transparent'
+    // marginRight: 20
   },
   rightContainer: {
     flex: 1,
     flexDirection: 'row',
+    paddingLeft: 25,
     alignItems: 'center'
   },
   whiteText: {
@@ -142,7 +143,7 @@ var mockUser = [
     ],
     reviews: [
       {
-        title: 'Ombre Watercolor Workshop',
+        title: 'Ombre Watercolor',
         teacher: 'Jack J.',
         knowlegeable: true,
         patient: true,
@@ -185,7 +186,7 @@ class User extends Component {
       name: '',
       email: '',
       profilePic: '',
-      dataSource: new ListView.DataSource({
+      dataSource1: new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2,
       }),
       loaded: false,
@@ -202,12 +203,12 @@ class User extends Component {
       name: mockUser[0].name,
       email: mockUser[0].email,
       profilePic: mockUser[0].profilePic,
-      dataSource: this.state.dataSource.cloneWithRows(mockUser[0].classes),
+      dataSource1: this.state.dataSource1.cloneWithRows(mockUser[0].classes),
       loaded: true,
     });
   }
 
-  renderRow(contact) {
+  renderClasses(contact) {
     return (
       <ContactCell contact={contact}/>
     );
@@ -243,8 +244,8 @@ class User extends Component {
         </View>
         <View style={styles.history}>
         <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderRow}/>
+        dataSource={this.state.dataSource1}
+        renderRow={this.renderClasses}/>
         </View>
       </View>
     )
@@ -266,26 +267,18 @@ var ContactCell = React.createClass({
         <View style={styles.contactCell}>
         <Image
            style={styles.classIcon}
-           source={this.props.imgLink} />
+           source={{uri:this.props.contact.imgLink}} />
            <View style={styles.rightContainer}>
              <View>
                <Text style={styles.whiteText}>
-               This is text
+                {this.props.contact.title}
                </Text>
                <Text style={styles.lightText}>
-                 Test
+                 Instructor: {this.props.contact.teacher}
                </Text>
-             </View>
-             <View style={styles.descContainer}>
-             <Text style={styles.lightText}>
-               Test2
-             </Text>
-             <Text style={styles.lightText}>
-               Test3
-             </Text>
-             <Text style={styles.lightText}>
-               Test 4
-             </Text>
+               <Text style={styles.lightText}>
+                 Contacted: {this.props.contact.lastContacted}
+               </Text>
              </View>
         </View>
       </View>
