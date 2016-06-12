@@ -1,7 +1,7 @@
 'use strict'
 
 import Icon from 'react-native-vector-icons/Ionicons';
-var Slider = require('react-native-slider');
+// var Slider = require('react-native-slider');
 
 import React, { Component } from 'react';
 import {
@@ -328,7 +328,7 @@ class Categories extends Component{
             onChange={this.handleChange.bind(this)} />
         </View>
         </View>
-        
+
         <View style={styles.Slider}>
         <Text style={styles.sliderTextStyle}>Price Range: ${this.state.value} / hr</Text>
           <Slider
@@ -361,6 +361,3 @@ class Categories extends Component{
 
 
 module.exports = Categories;
-
-
-
