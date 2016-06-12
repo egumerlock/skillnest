@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: 20,
     color: 'white',
-    marginLeft: 100
+    marginLeft: 50
   },
   arrowContainer: {
     marginRight: 15,
@@ -330,15 +330,15 @@ class Categories extends Component{
         </View>
 
         <View style={styles.Slider}>
-        <Text style={styles.sliderTextStyle}>Price Range: ${this.state.value} / hr</Text>
+        <Text style={styles.sliderTextStyle}>Price Range: Up to ${this.state.value} / hour</Text>
           <Slider
           value={10}
           onValueChange={(value) => this.setState({value})}
-          step={1}
+          step={5}
           maximumValue={100}
           minimumValue={10}
           minimumTrackTintColor='#43C6C6'
-          maximumTrackTintColor='#53D1E5'/>
+          maximumTrackTintColor='gray'/>
         </View>
 
 
