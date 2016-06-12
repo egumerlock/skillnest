@@ -7,6 +7,7 @@ import Categories from './App/Components/Categories'
 import Topics from './App/Components/Topics'
 
 
+
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -64,6 +65,9 @@ class skillnest extends Component {
      }
      if(route.name == 'Topics') {
        return <Topics navigator={navigator} />
+     }
+     if(route.name == 'MainMapView') {
+       return <MainMapView navigator={navigator} />
      }
   }
 }
