@@ -6,12 +6,14 @@ import {
   View,
   Image,
   TouchableOpacity,
+  ListView,
   ScrollView
 } from 'react-native';
 
 let styles = StyleSheet.create({
   container: {
    flex: 1,
+   paddingTop: 20,
    backgroundColor: '#ffffff'
   },
   hero: {
@@ -68,13 +70,51 @@ let styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
     color: 'white'
-  }
+  },
+  contactCell: {
+    flex:1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: 4,
+    borderBottomWidth: .5,
+    borderColor: 'lightgray'
+  },
+  classIcon: {
+    padding: 0,
+    width: 100,
+    height: 100,
+    backgroundColor: 'transparent'
+    // marginRight: 20
+  },
+  rightContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingLeft: 25,
+    alignItems: 'center'
+  },
+  whiteText: {
+    fontSize: 18,
+    color: 'white'
+  },
+  lightText: {
+    color: 'white'
+  },
+  descContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  seperator: {
+    height: 1,
+    backgroundColor: 'white'
+  },
 })
 
-var mockedUser = [
+var mockUser = [
   {
-    name: 'Molly S.',
-    email: 'mollys@gmail.com',
+    name: 'Tommy C.',
+    email: 'tommyc@gmail.com',
+    profilePic: 'https://beautifulinnovation.files.wordpress.com/2015/06/circular-profile-pic.png?w=450&h=450&crop=1',
     classes: [
       {
         title: 'Ombre Watercolor Workshop',
@@ -103,7 +143,7 @@ var mockedUser = [
     ],
     reviews: [
       {
-        title: 'Ombre Watercolor Workshop',
+        title: 'Ombre Watercolor',
         teacher: 'Jack J.',
         knowlegeable: true,
         patient: true,
@@ -140,38 +180,60 @@ var mockedUser = [
 ]
 
 class User extends Component {
-  getInitialState(){
-    return{
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,
-      }).cloneWithRows(mockedUser),
-      name: ''
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      profilePic: '',
+      dataSource1: new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2,
+      }),
+      dataSource2: new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2,
+      }),
+      loaded: false,
     };
   }
 
-  // componentDidMount() {
-  //     this.fetchData();
-  // }
-  //
-  // fetchData() {
-  //   //return mocked data for now
-  //   // this.setState({
-  //   //   name: mockedUser[0].name,
-  //   //   dataSource: this.state.dataSource.cloneWithRows(mockedUser)
-  //
-  //   });
-  // }
+  componentDidMount() {
+      this.fetchData();
+  }
+
+  fetchData() {
+    // return mocked data for now
+    this.setState({
+      name: mockUser[0].name,
+      email: mockUser[0].email,
+      profilePic: mockUser[0].profilePic,
+      dataSource1: this.state.dataSource1.cloneWithRows(mockUser[0].classes),
+      dataSource2: this.state.dataSource2.cloneWithRows(mockUser[0].reviews),
+      loaded: true,
+    });
+  }
+
+  renderClasses(contact) {
+    return (
+      <ContactCell contact={contact}/>
+    );
+  }
+
+  renderReviews(review) {
+    return (
+      <ReviewCell review={review}/>
+    );
+  }
 
   render(){
     return(
       <View style={styles.container}>
         <View style={styles.hero}>
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>this.state.name</Text>
+          <Text style={styles.title}>{this.state.name}</Text>
         </View>
           <Image
           style={styles.profilePic}
-          source={{uri:'http://1.bp.blogspot.com/-I2aPA52ms38/VcqtGNT0-9I/AAAAAAAAGQ8/QTuHSROZl2c/s1600/abby-circular-profile.png'}}
+          source={{uri:'https://beautifulinnovation.files.wordpress.com/2015/06/circular-profile-pic.png?w=450&h=450&crop=1'}}
           />
         </View>
         <View style={styles.buttonWrapper}>
@@ -191,7 +253,9 @@ class User extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.history}>
-
+        <ListView
+        dataSource={this.state.dataSource1}
+        renderRow={this.renderClasses}/>
         </View>
       </View>
     )
@@ -205,5 +269,59 @@ class User extends Component {
 
   }
 }
+
+var ContactCell = React.createClass({
+  render() {
+    return(
+      <View>
+        <View style={styles.contactCell}>
+        <Image
+           style={styles.classIcon}
+           source={{uri:this.props.contact.imgLink}} />
+           <View style={styles.rightContainer}>
+             <View>
+               <Text style={styles.whiteText}>
+                {this.props.contact.title}
+               </Text>
+               <Text style={styles.lightText}>
+                 Instructor: {this.props.contact.teacher}
+               </Text>
+               <Text style={styles.lightText}>
+                 Contacted:
+               </Text>
+             </View>
+        </View>
+      </View>
+      <View style={styles.separator}/>
+      </View>
+    )
+  }
+})
+
+var ReviewCell = React.createClass({
+  render() {
+    return(
+      <View>
+        <View style={styles.contactCell}>
+
+           <View style={styles.rightContainer}>
+             <View>
+               <Text style={styles.whiteText}>
+                {this.props.review.title}
+               </Text>
+               <Text style={styles.lightText}>
+                 Instructor: {this.props.review.teacher}
+               </Text>
+               <Text style={styles.lightText}>
+                 Summary: {this.props.review.summary}
+               </Text>
+             </View>
+        </View>
+      </View>
+      <View style={styles.separator}/>
+      </View>
+    )
+  }
+})
 
 export default User;
