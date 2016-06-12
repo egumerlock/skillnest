@@ -40,7 +40,7 @@ class skillnest extends Component {
     return (
         <Navigator
           style={{ flex:1 }}
-          initialRoute={{ name: 'StartSlider' }}
+          initialRoute={{ name: 'Categories' }}
           renderScene={ this.renderScene }
           configureScene={ () => FloatFromRight }
           />
