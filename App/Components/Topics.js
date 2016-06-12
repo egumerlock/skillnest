@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
   },
 // header section
   headerContainer: {
-    flex: 0.44,
-    backgroundColor: '#008000',
+    flex: 0.3,
+    backgroundColor: '#17A66C',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: 'white',
-    marginTop: 30,
-    marginBottom: 23,
+    marginTop: 5,
+    marginBottom: 5
   },
   paddingView: {
-    paddingTop: 20,
+    paddingTop: 0,
   },
   SearchInputContainer: {
     flexDirection: 'row',
@@ -61,8 +61,7 @@ const styles = StyleSheet.create({
   },
   rowContainer: {
     flexDirection: 'row',
-    marginTop: 5,
-    marginBottom: 5,
+
   },
   textContainer: {
     flex: 1,
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
   img: {
     flex: 1,
     alignItems: 'stretch',
-    marginBottom: 5,
+    marginBottom: 1,
     padding: 20,
     width: null,
     height: null
