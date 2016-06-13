@@ -2,6 +2,8 @@ var Button = require('./Common/button');
 import Separator2 from './Helpers/Separator2'
 import communication from './Helpers/Communication'
 import AnimatedRatingStars from './Helpers/AnimatedRatingStars'
+import Icon from 'react-native-vector-icons/Ionicons';
+import ClassList from './ClassList';
 
 import React, { Component } from 'react';
 import {
@@ -14,7 +16,8 @@ import {
   Image,
   ScrollView,
   MapView,
-  Marker
+  Marker,
+  TouchableOpacity
 } from 'react-native';
 
 var styles = StyleSheet.create({
@@ -105,21 +108,33 @@ var styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'transparent'
   },
+  SearchInputIcon: {
+    color: "white",
+    marginLeft: -170,
+    marginTop: -20
+
+  },
+
 });
 
 class CoursePage extends Component {
   constructor() {
     super();
     this.state = {
-      coordinate: {
-        latitude: 37.8324,
-        longitude: -122.4795
-      },
+      markers: [{
+        latitude: 37.7824,
+        longitude: -122.3995,
+        title: 'learn surfing'
+      }]
     };
   }
   render() {
     return (
       <Image style={styles.container} source={require('./Helpers/background-gradient-custom.png')}>
+
+        <TouchableOpacity onPress={this.onBackPress.bind(this)}>
+          <Icon name="ios-undo" style={styles.SearchInputIcon} size={30} />
+        </TouchableOpacity>
 
         <View>
           <View style={styles.rowContainer}>
@@ -133,13 +148,15 @@ class CoursePage extends Component {
           <Separator2/>
 
           <View style={styles.rowContainer}>
-            <Text style={styles.title}> Beginners Surfring I </Text>
+            <Text style={styles.title}> Beginners Surfing I </Text>
           </View>
           <Separator2/>
 
           <View style={styles.mapContainer}>
-            <MapView style={styles.map} followUserLocation={true} showsUserLocation={true}>
-              <MapView.Marker coordinate={this.state.coordinate}/>
+            <MapView style={styles.map}
+              followUserLocation={true}
+              showsUserLocation={true}
+              annotations={this.state.markers}>
             </MapView>
           </View>
 
@@ -166,6 +183,13 @@ class CoursePage extends Component {
 
       </Image>
     )
+  }
+  onBackPress () {
+    this.props.navigator.pop({
+      component: ClassList,
+      name: "ClassList"
+
+    })
   }
 };
 

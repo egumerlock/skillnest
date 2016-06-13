@@ -29,9 +29,10 @@ const styles = StyleSheet.create({
   headerContainer: {
     paddingTop: 20,
     flex: 0.2,
-    backgroundColor: '#17A66C',
+    backgroundColor: '#43C6C6',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 20
   },
   headerText: {
     fontWeight: 'bold',
@@ -45,20 +46,23 @@ const styles = StyleSheet.create({
   },
   SearchInputContainer: {
     flexDirection: 'row',
+    marginBottom: 20
   },
   searchInput: {
     height: 30,
     width: 330,
     marginLeft: 5,
     fontSize: 23,
-    borderWidth: 1,
-    borderColor: '#262626',
+    borderWidth: 2,
+    borderColor: 'white',
     borderRadius: 8,
     color: '#4d4d4d',
     backgroundColor: '#f2f2f2',
+    marginTop: 5
   },
   SearchInputIcon: {
-    color: "#000000",
+    color: "white",
+    marginTop: 5
   },
 
 // row section
@@ -81,7 +85,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: 20,
     color: 'white',
-    marginLeft: 50
+    marginLeft: 50,
   },
   arrowContainer: {
     marginRight: 15,
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: 'stretch',
     justifyContent: 'center',
-    backgroundColor: '#17A66C',
+    backgroundColor: '#43C6C6'
   }
 });
 
@@ -288,7 +292,7 @@ class Categories extends Component{
       ];
     this.state = {
       dataSource: this.ds.cloneWithRows(this.categoryData),
-      searchInputText: 'Search...',
+      searchInputText: ' Search...',
       imgLink: '',
     }
   }
@@ -325,7 +329,9 @@ class Categories extends Component{
           <TextInput
             style={styles.searchInput}
             value={this.state.searchInputText}
-            onChange={this.handleChange.bind(this)} />
+            onChange={this.handleChange.bind(this)}>
+
+          </TextInput>
         </View>
         </View>
 
@@ -337,8 +343,8 @@ class Categories extends Component{
           step={5}
           maximumValue={100}
           minimumValue={10}
-          minimumTrackTintColor='#43C6C6'
-          maximumTrackTintColor='gray'/>
+          minimumTrackTintColor='gray'
+          maximumTrackTintColor='white'/>
         </View>
 
 
