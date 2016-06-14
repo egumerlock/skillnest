@@ -3,7 +3,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Categories from './Categories'
 var MainMapView = require('./MainMapView.js')
-var Categories = require('./Categories.js')
 import User from './User'
 import ClassList from './ClassList'
 // import MainMapView from './MainMapView'
