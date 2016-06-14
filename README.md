@@ -3,7 +3,7 @@
 Skillnest is a mobile platform that uses a real-time database to allow students to browse local courses and connect with skilled teachers. Skillnest also sets up a space where teachers can display concise information about their background, their philosophy, and their course offerings in order to market themselves more effectively. Technologies used include React Native, ECMS 6, and Firebase.
 
 ## Watch the demo
-<a href="https://www.youtube.com/watch?v=ysyDFT27_ug&feature=youtu.be"><img src="./readme_pics/demo-shot.png" height="300"></a>
+<a href="https://www.youtube.com/watch?v=ysyDFT27_ug&feature=youtu.be"><img src="./readme_pics/Demo-shot.png" height="300"></a>
 
 ##Inspiration
 
